@@ -1,0 +1,142 @@
+---
+// src/pages/tentang.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Values from '../components/Values.astro';
+import Stats from '../components/Stats.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Tentang Kami - Seisipotret Documentation">
+  <Navbar />
+  <main>
+    
+    <!-- 1. Hero Section (Disamakan persis dengan Hero.astro) -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      <!-- Background Overlay / Image Placeholder -->
+      <div class="absolute inset-0 z-0">
+        <!-- Overlay Gradien Adaptif Light/Dark Mode -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-100/60 via-slate-100/80 to-slate-50 dark:from-slate-950/70 dark:via-slate-950/85 dark:to-slate-950 z-10"></div>
+        <img 
+          src="https://myvitamine.co.id/assets/article/image/kabah.webp?q=80&w=1920&auto=format&fit=crop" 
+          alt="Makkah Background" 
+          class="w-full h-full object-cover object-center filter blur-[1px]"
+        />
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-[#4a88bc] block mb-3">
+          TENTANG KAMI
+        </span>
+        <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight leading-tight mb-6">
+          Dari Niat hingga Menjadi <span class=" italic text-[#4a88bc]">Tamu Allah</span>
+        </h1>
+
+        <p class="text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+          Setiap perjalanan umrah berawal dari niat yang tulus. Seisipotret hadir untuk mengabadikan setiap kenangan perjalanan Anda di Tanah Suci melalui dokumentasi visual sinematik, terkonsep, dan penuh makna.
+        </p>
+
+        <!-- Scroll Indicator Element -->
+        <div class="pt-4 flex flex-col items-center justify-center gap-2 opacity-80 animate-bounce">
+          <span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Scroll Ke Bawah</span>
+          <svg class="w-4 h-4 text-[#4a88bc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Story Section -->
+    <section class="min-h-screen flex items-center py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        
+        <!-- Left Image Card -->
+        <div class="lg:col-span-6">
+          <div class="relative overflow-hidden rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 aspect-[4/3] group">
+            <img 
+              src="https://images.pexels.com/photos/35531111/pexels-photo-35531111.jpeg?q=80&w=800&auto=format&fit=crop" 
+              alt="Dokumentasi Jamaah Seisipotret" 
+              class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+            />
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="lg:col-span-6 space-y-6">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Dimulai Dari Sebuah <span class="text-[#4a88bc]">Kerinduan</span>
+          </h2>
+          <div class="space-y-4 text-xs md:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+            <p>
+              Setiap perjalanan ke Tanah Suci punya cerita unik dan kenangan yang tak ternilai. Ada jamaah yang ingin beribadah lebih personal bersama keluarga, ada rombongan privat VVIP, hingga travel yang membutuhkan pendampingan tim media profesional.
+            </p>
+            <p>
+              Seisipotret hadir khusus untuk mengabadikan momen-momen bersejarah tersebut. Mulai dari dokumentasi foto candid yang alami, video highlight sinematik 4K, hingga konten siap upload untuk kebutuhan sosial media Anda.
+            </p>
+            <p>
+              Bagi kami, dokumentasi umrah bukan sekadar mengambil gambar, melainkan merekam rasa syukur dan khusyuknya jamaah agar kenangan indah tersebut dapat dikenang sepanjang masa.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <Values />
+
+    <!-- Stats Section -->
+    <Stats />
+
+    <!-- 3. Integrated Services Feature -->
+    <section class="min-h-screen flex items-center py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#4a88bc]">
+            LAYANAN TERINTEGRASI
+          </span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Layanan Visual Terpadu Untuk Perjalanan Sempurna
+          </h2>
+          <ul class="space-y-4 pt-2">
+            <li class="flex items-start gap-3 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+              <span class="p-1 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] shrink-0 mt-0.5">✓</span>
+              <span>Dokumentasi Foto & Video Full-Day di Makkah & Madinah</span>
+            </li>
+            <li class="flex items-start gap-3 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+              <span class="p-1 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] shrink-0 mt-0.5">✓</span>
+              <span>Crew Media Privat Dedicated (Photographer & Videographer)</span>
+            </li>
+            <li class="flex items-start gap-3 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+              <span class="p-1 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] shrink-0 mt-0.5">✓</span>
+              <span>Editing Sinematik Video 4K & Reel/TikTok Highlight</span>
+            </li>
+            <li class="flex items-start gap-3 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+              <span class="p-1 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] shrink-0 mt-0.5">✓</span>
+              <span>Cetak Hardcover Album Eksklusif & Cloud Storage Access</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="relative overflow-hidden rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 aspect-[4/5] max-w-md mx-auto group">
+            <img 
+              src="https://rihlahstudio.com/media/2026/07/RIHLAH-12-scaled.webp?q=80&w=800&auto=format&fit=crop" 
+              alt="Visual Seisipotret" 
+              class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Reusable CTA Banner -->
+    <CTASection />
+
+  </main>
+  <Footer />
+</Layout>

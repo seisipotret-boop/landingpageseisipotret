@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Integrasi selector .dark untuk Tailwind CSS v4 */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-primary: #4a88bc;
+  --color-primary-hover: #3b719f;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}

@@ -1,0 +1,53 @@
+---
+// src/components/Testimonials.astro
+
+const testimonials = [
+  {
+    quote: "Pelayanan dokumentasi sangat profesional dan tidak mengganggu kekhusyukan ibadah. Hasil foto dan video sinematiknya benar-benar melampaui ekspektasi keluarga kami.",
+    name: "Ahmadi & Keluarga",
+    role: "Jamaah VVIP Umroh",
+  },
+  {
+    quote: "Dokumentasi visual Seisipotret mengabadikan momen kebersamaan di Makkah & Madinah dengan angle yang sangat indah. Hasil edit videonya sangat cepat dan siap diunggah.",
+    name: "Siti Rahmah",
+    role: "Jamaah Privat",
+  },
+  {
+    quote: "Hasil foto candid-nya luar biasa alami. Photographer ramah, paham lokasi mana saja yang estetik dan diizinkan untuk mengambil gambar tanpa hambatan.",
+    name: "Budi Santoso",
+    role: "Jamaah Rombongan",
+  },
+];
+---
+
+<section class="py-20 bg-white dark:bg-slate-950 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    
+    <div class="text-center space-y-4 mb-10">
+       <div class="flex items-center justify-center gap-3">
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#4a88bc]">TESTIMONI</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-serif text-slate-900 dark:text-white tracking-tight">
+        Apa Kata <span class="italic text-[#4a88bc]">Jamaah</span> Kami
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {testimonials.map((item) => (
+        <div class="bg-white dark:bg-slate-900/80 p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/80 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+          <div>
+            <div class="text-[#4a88bc] text-3xl font-serif mb-4">“</div>
+            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed mb-6">
+              {item.quote}
+            </p>
+          </div>
+          <div class="border-t border-slate-100 dark:border-slate-800 pt-4">
+            <h3 class="text-xs font-bold text-slate-900 dark:text-white">{item.name}</h3>
+            <p class="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider">{item.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

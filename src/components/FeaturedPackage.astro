@@ -1,0 +1,106 @@
+---
+// src/components/FeaturedPackage.astro
+
+const packageDetails = {
+  category: 'PAKET UNGGULAN',
+  title: 'Private VVIP Photo & Video',
+  subtitle: 'Dokumentasi eksklusif sinematik yang dirancang khusus untuk mengabadikan momen spiritual, privasi, dan kenyamanan keluarga Anda di Tanah Suci.',
+  price: 'SAR 15.300',
+  unit: '/ paket / min. 2 pax',
+  features: [
+    '3-4 Hari Dokumentasi Full-Day (Makkah & Madinah)',
+    'Photographer & Videographer Dedicated / Private',
+    'FREE 1 Video Highlight Sinematik (1-3 Menit)',
+    '100+ Foto Edited Premium + Digital Album (Google Drive)',
+    'Cetak Hardcover Exclusive Album Photo',
+    'Bonus Reels/TikTok Ready Content (Shorts 9:16)',
+  ],
+  whatsappLink: 'https://wa.me/6281234567890?text=Halo%20Seisipotret,%20saya%20tertarik%20dengan%20Paket%20Private%20VVIP%20Photo%20%26%20Video',
+  image: 'https://images.pexels.com/photos/35531111/pexels-photo-35531111.jpeg?q=80&w=800&auto=format&fit=crop',
+};
+---
+
+<section id="paket" class="py-20 bg-slate-100/50 dark:bg-slate-900/50 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Package Info -->
+      <div class="lg:col-span-6 space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#4a88bc]">
+            {packageDetails.category}
+          </span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">
+            {packageDetails.title}
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-3 font-light leading-relaxed">
+            {packageDetails.subtitle}
+          </p>
+        </div>
+
+        <!-- Pricing -->
+        <div class="flex items-baseline gap-2">
+          <span class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+            {packageDetails.price}
+          </span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+            {packageDetails.unit}
+          </span>
+        </div>
+
+        <!-- Features Checklist -->
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          {packageDetails.features.map((feature) => (
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
+              <span class="p-0.5 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-4 pt-4">
+          <a 
+            href={packageDetails.whatsappLink}
+            target="_blank"
+            class="inline-flex items-center gap-2 bg-[#4a88bc] hover:bg-[#3b719f] text-white px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition shadow-md hover:shadow-lg"
+          >
+            Booking Sekarang
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+
+          <a 
+            href="#detail-paket"
+            class="px-6 py-3 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:border-[#4a88bc] transition uppercase"
+          >
+            Detail Paket
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Visual Preview Card -->
+      <div class="lg:col-span-6 relative">
+        <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-slate-200/60 dark:border-slate-800 aspect-[4/5] max-w-md mx-auto lg:max-w-none">
+          <img 
+            src={packageDetails.image} 
+            alt="Dokumentasi Umroh VVIP" 
+            class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+          
+          <!-- Badge overlay -->
+          <div class="absolute top-6 left-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            Private Crew
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+// src/components/CTASection.astro
+
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  whatsappNumber?: string;
+}
+
+const {
+  title = "Siap Melangkah Ke Tanah Suci?",
+  description = "Hubungi admin Seisipotret di WhatsApp untuk konsultasi gratis dan perencanaan dokumentasi perjalanan spiritual Anda yang nyaman dan berkesan.",
+  buttonText = "Mulai Konsultasi",
+  whatsappNumber = "6281234567890"
+} = Astro.props;
+
+const waUrl = `https://wa.me/${whatsappNumber}?text=Halo%20Seisipotret,%20saya%20ingin%20konsultasi%20dokumentasi%20umroh`;
+---
+
+<section class="py-16 bg-slate-100/70 dark:bg-slate-900/40 border-t border-slate-200/50 dark:border-slate-800/50 transition-colors duration-300">
+  <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
+    <h2 class="font-serif text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+      {title}
+    </h2>
+    <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+      {description}
+    </p>
+    <div>
+      <a 
+        href={waUrl}
+        target="_blank"
+        class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-[#4a88bc] dark:hover:bg-[#4a88bc] dark:hover:text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+      >
+        {buttonText}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
