@@ -220,8 +220,8 @@ const navLinks = [
   </div>
 </aside>
 
-<script is:inline>
-  function initNavbarScript() {
+<script>
+  function setupNavbar() {
     const navbar = document.getElementById('navbar');
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
@@ -230,13 +230,12 @@ const navLinks = [
     const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
     const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
     
-    // Accordion Layanan di Mobile
     const mobileLayananBtn = document.getElementById('mobile-layanan-btn');
     const mobileLayananSubmenu = document.getElementById('mobile-layanan-submenu');
     const mobileLayananChevron = document.getElementById('mobile-layanan-chevron');
 
-    // Scroll Effect Listener untuk Navbar Background
-    const handleScroll = () => {
+    // 1. SCROLL NAVBAR
+    function handleScroll() {
       if (!navbar) return;
       if (window.scrollY > 20) {
         navbar.classList.add(
@@ -265,41 +264,45 @@ const navLinks = [
         );
         navbar.classList.add('py-4', 'md:py-5');
       }
-    };
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Jalankan sekali saat load halaman
+    window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-    mobileLayananBtn?.addEventListener('click', () => {
-      mobileLayananSubmenu?.classList.toggle('hidden');
-      mobileLayananChevron?.classList.toggle('rotate-180');
-    });
+    // 2. ACCORDION MOBILE LAYANAN
+    if (mobileLayananBtn) {
+      mobileLayananBtn.onclick = () => {
+        mobileLayananSubmenu?.classList.toggle('hidden');
+        mobileLayananChevron?.classList.toggle('rotate-180');
+      };
+    }
 
-    // Theme Toggle
-    const toggleTheme = () => {
+    // 3. TOGGLE THEME
+    function toggleTheme() {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    };
+    }
+
     if (themeToggle) themeToggle.onclick = toggleTheme;
     if (themeToggleMobile) themeToggleMobile.onclick = toggleTheme;
 
-    // Open/Close Mobile Menu
-    mobileMenuBtn?.addEventListener('click', () => {
-      mobileMenuDrawer?.classList.remove('translate-x-full');
-      mobileMenuBackdrop?.classList.remove('opacity-0', 'pointer-events-none');
-    });
-
+    // 4. MOBILE DRAWER NAVIGATION
     const closeMenu = () => {
       mobileMenuDrawer?.classList.add('translate-x-full');
       mobileMenuBackdrop?.classList.add('opacity-0', 'pointer-events-none');
     };
-    mobileMenuClose?.addEventListener('click', closeMenu);
-    mobileMenuBackdrop?.addEventListener('click', closeMenu);
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.onclick = () => {
+        mobileMenuDrawer?.classList.remove('translate-x-full');
+        mobileMenuBackdrop?.classList.remove('opacity-0', 'pointer-events-none');
+      };
+    }
+
+    if (mobileMenuClose) mobileMenuClose.onclick = closeMenu;
+    if (mobileMenuBackdrop) mobileMenuBackdrop.onclick = closeMenu;
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNavbarScript);
-  } else {
-    initNavbarScript();
-  }
+  document.addEventListener('astro:page-load', setupNavbar);
 </script>

@@ -26,13 +26,24 @@ const {
     <ClientRouter />
     <!-- Script Deteksi Mode Awal -->
     <script is:inline>
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
+  const applyTheme = () => {
+    const theme = localStorage.getItem('theme');
+    if (
+      theme === 'dark' ||
+      (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  // Terapkan saat awal muat
+  applyTheme();
+
+  // Terapkan ulang saat navigasi Astro View Transitions
+  document.addEventListener('astro:after-swap', applyTheme);
+</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
