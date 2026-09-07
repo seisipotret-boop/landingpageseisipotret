@@ -379,7 +379,9 @@ const excludes = [
   <Footer />
 </Layout>
 
-<script is:inline>
+<script>
+  let slideTimer: ReturnType<typeof setInterval> | null = null;
+
   function initPageScript() {
     // 1. AUTOMATIC SLIDER LOGIC
     const slider = document.getElementById('main-slider');
@@ -391,12 +393,19 @@ const excludes = [
     
     let currentIndex = 0;
     const totalItems = sliderItems.length;
-    let slideTimer;
 
-    const updateSlider = (index) => {
+    const stopAutoSlide = () => {
+      if (slideTimer) {
+        clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    };
+
+    const updateSlider = (index: number) => {
+      if (totalItems === 0) return;
       currentIndex = (index + totalItems) % totalItems;
       if (slider) slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      if (currentIndexDisplay) currentIndexDisplay.textContent = currentIndex + 1;
+      if (currentIndexDisplay) currentIndexDisplay.textContent = (currentIndex + 1).toString();
 
       dots.forEach((dot, i) => {
         if (i === currentIndex) {
@@ -409,13 +418,11 @@ const excludes = [
 
     const startAutoSlide = () => {
       stopAutoSlide();
-      slideTimer = setInterval(() => {
-        updateSlider(currentIndex + 1);
-      }, 3500);
-    };
-
-    const stopAutoSlide = () => {
-      if (slideTimer) clearInterval(slideTimer);
+      if (totalItems > 0) {
+        slideTimer = setInterval(() => {
+          updateSlider(currentIndex + 1);
+        }, 3500);
+      }
     };
 
     prevBtn?.addEventListener('click', () => {
@@ -430,7 +437,8 @@ const excludes = [
 
     dots.forEach((dot) => {
       dot.addEventListener('click', (e) => {
-        const idx = parseInt(e.currentTarget.dataset.index || "0");
+        const target = e.currentTarget as HTMLElement;
+        const idx = parseInt(target.dataset.index || "0", 10);
         updateSlider(idx);
         startAutoSlide();
       });
@@ -440,15 +448,16 @@ const excludes = [
 
     // 2. LIGHTBOX MODAL
     const modal = document.getElementById('lightbox-modal');
-    const modalImg = document.getElementById('lightbox-img');
+    const modalImg = document.getElementById('lightbox-img') as HTMLImageElement;
     const modalTitle = document.getElementById('lightbox-title');
     const modalClose = document.getElementById('lightbox-close');
 
     sliderItems.forEach(item => {
       item.addEventListener('click', () => {
         stopAutoSlide();
-        const url = item.dataset.imgUrl;
-        const title = item.dataset.imgTitle;
+        const element = item as HTMLElement;
+        const url = element.dataset.imgUrl || "";
+        const title = element.dataset.imgTitle || "";
 
         if (modalImg && modalTitle && modal) {
           modalImg.src = url;
@@ -474,13 +483,13 @@ const excludes = [
     });
 
     // 3. DYNAMIC PRICE CALCULATION
-    const tripDaysInput = document.getElementById('tripDays');
+    const tripDaysInput = document.getElementById('tripDays') as HTMLInputElement;
     const priceSarDisplay = document.getElementById('estimated-price-sar');
     const priceIdrDisplay = document.getElementById('estimated-price-idr');
     const kurs = 4500;
 
     const calculatePrice = () => {
-      const days = parseInt(tripDaysInput.value) || 10;
+      const days = parseInt(tripDaysInput?.value || "10", 10);
       let totalSAR = 0;
 
       if (days <= 10) {
@@ -501,12 +510,15 @@ const excludes = [
     tripDaysInput?.addEventListener('input', calculatePrice);
 
     // 4. WHATSAPP FORM SUBMISSION TEMPLATE
-    const form = document.getElementById('travel-booking-form');
+    const form = document.getElementById('travel-booking-form') as HTMLFormElement;
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('fullName').value.trim();
-      const startDate = document.getElementById('startDate').value;
+      const nameInput = document.getElementById('fullName') as HTMLInputElement;
+      const startDateInput = document.getElementById('startDate') as HTMLInputElement;
+
+      const name = nameInput?.value.trim() || "";
+      const startDate = startDateInput?.value || "";
       const { days, totalSAR } = calculatePrice();
 
       if (!name || !startDate) {
@@ -529,9 +541,14 @@ Mohon bantuan untuk koordinasi jadwal & detail perjalanan lebih lanjut. Terima k
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPageScript);
-  } else {
-    initPageScript();
-  }
+  // Integrasi Client Router Astro
+  document.addEventListener('astro:page-load', initPageScript);
+
+  // Stop auto slide saat navigasi berpindah
+  document.addEventListener('astro:before-preparation', () => {
+    if (slideTimer) {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    }
+  });
 </script>

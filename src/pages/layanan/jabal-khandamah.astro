@@ -456,7 +456,9 @@ const notes = [
   <Footer />
 </Layout>
 
-<script is:inline>
+<script>
+  let slideTimer: ReturnType<typeof setInterval> | null = null;
+
   function initPageScript() {
     // 1. AUTOMATIC SLIDER LOGIC
     const slider = document.getElementById('main-slider');
@@ -468,12 +470,19 @@ const notes = [
     
     let currentIndex = 0;
     const totalItems = sliderItems.length;
-    let slideTimer;
 
-    const updateSlider = (index) => {
+    const stopAutoSlide = () => {
+      if (slideTimer) {
+        clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    };
+
+    const updateSlider = (index: number) => {
+      if (totalItems === 0) return;
       currentIndex = (index + totalItems) % totalItems;
       if (slider) slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      if (currentIndexDisplay) currentIndexDisplay.textContent = currentIndex + 1;
+      if (currentIndexDisplay) currentIndexDisplay.textContent = (currentIndex + 1).toString();
 
       dots.forEach((dot, i) => {
         if (i === currentIndex) {
@@ -486,46 +495,50 @@ const notes = [
 
     const startAutoSlide = () => {
       stopAutoSlide();
-      slideTimer = setInterval(() => {
+      if (totalItems > 0) {
+        slideTimer = setInterval(() => {
+          updateSlider(currentIndex + 1);
+        }, 3500);
+      }
+    };
+
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        updateSlider(currentIndex - 1);
+        startAutoSlide();
+      };
+    }
+
+    if (nextBtn) {
+      nextBtn.onclick = () => {
         updateSlider(currentIndex + 1);
-      }, 3500);
-    };
-
-    const stopAutoSlide = () => {
-      if (slideTimer) clearInterval(slideTimer);
-    };
-
-    prevBtn?.addEventListener('click', () => {
-      updateSlider(currentIndex - 1);
-      startAutoSlide();
-    });
-
-    nextBtn?.addEventListener('click', () => {
-      updateSlider(currentIndex + 1);
-      startAutoSlide();
-    });
+        startAutoSlide();
+      };
+    }
 
     dots.forEach((dot) => {
-      dot.addEventListener('click', (e) => {
-        const idx = parseInt(e.currentTarget.dataset.index || "0");
+      (dot as HTMLElement).onclick = (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const idx = parseInt(target.dataset.index || "0", 10);
         updateSlider(idx);
         startAutoSlide();
-      });
+      };
     });
 
     startAutoSlide();
 
     // 2. LIGHTBOX MODAL
     const modal = document.getElementById('lightbox-modal');
-    const modalImg = document.getElementById('lightbox-img');
+    const modalImg = document.getElementById('lightbox-img') as HTMLImageElement;
     const modalTitle = document.getElementById('lightbox-title');
     const modalClose = document.getElementById('lightbox-close');
 
     sliderItems.forEach(item => {
-      item.addEventListener('click', () => {
+      (item as HTMLElement).onclick = () => {
         stopAutoSlide();
-        const url = item.dataset.imgUrl;
-        const title = item.dataset.imgTitle;
+        const element = item as HTMLElement;
+        const url = element.dataset.imgUrl || "";
+        const title = element.dataset.imgTitle || "";
 
         if (modalImg && modalTitle && modal) {
           modalImg.src = url;
@@ -533,7 +546,7 @@ const notes = [
           modal.classList.remove('hidden');
           setTimeout(() => modal.classList.remove('opacity-0'), 10);
         }
-      });
+      };
     });
 
     const closeModal = () => {
@@ -545,21 +558,24 @@ const notes = [
       }, 300);
     };
 
-    modalClose?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
+    if (modalClose) modalClose.onclick = closeModal;
+    if (modal) {
+      modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+      };
+    }
 
     // 3. ACCORDION & PACKAGE SELECTION
-    let selectedPackage = null;
+    let selectedPackage: { name: string; price: string; subtitle: string; duration: string } | null = null;
     const cards = document.querySelectorAll('.package-card');
     const displayBox = document.getElementById('selected-package-display');
-    const submitBtn = document.getElementById('submit-btn');
-    const form = document.getElementById('booking-form');
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const form = document.getElementById('booking-form') as HTMLFormElement;
 
     cards.forEach(card => {
-      const toggleBtn = card.querySelector('.card-toggle');
-      const selectBtn = card.querySelector('.select-btn');
+      const cardEl = card as HTMLElement;
+      const toggleBtn = card.querySelector('.card-toggle') as HTMLElement;
+      const selectBtn = card.querySelector('.select-btn') as HTMLElement;
       const details = card.querySelector('.card-details');
       const chevron = card.querySelector('.chevron-icon');
 
@@ -570,15 +586,15 @@ const notes = [
           c.querySelector('.radio-dot')?.classList.add('opacity-0');
         });
 
-        card.classList.add('border-[#4a88bc]', 'ring-2', 'ring-[#4a88bc]/20');
-        card.querySelector('.radio-indicator')?.classList.add('border-[#4a88bc]', 'bg-[#4a88bc]/10');
-        card.querySelector('.radio-dot')?.classList.remove('opacity-0');
+        cardEl.classList.add('border-[#4a88bc]', 'ring-2', 'ring-[#4a88bc]/20');
+        cardEl.querySelector('.radio-indicator')?.classList.add('border-[#4a88bc]', 'bg-[#4a88bc]/10');
+        cardEl.querySelector('.radio-dot')?.classList.remove('opacity-0');
 
         selectedPackage = {
-          name: card.dataset.packageName,
-          price: card.dataset.packagePrice,
-          subtitle: card.dataset.packageSubtitle,
-          duration: card.dataset.packageDuration
+          name: cardEl.dataset.packageName || "",
+          price: cardEl.dataset.packagePrice || "",
+          subtitle: cardEl.dataset.packageSubtitle || "",
+          duration: cardEl.dataset.packageDuration || ""
         };
 
         if (displayBox) {
@@ -588,49 +604,58 @@ const notes = [
 
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.className = "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#4a88bc] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md";
+          submitBtn.className = "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md";
         }
       };
 
-      toggleBtn?.addEventListener('click', () => {
-        const isHidden = details?.classList.contains('hidden');
-        
-        cards.forEach(c => {
-          c.querySelector('.card-details')?.classList.add('hidden');
-          c.querySelector('.chevron-icon')?.classList.remove('rotate-180');
-        });
+      if (toggleBtn) {
+        toggleBtn.onclick = (e) => {
+          e.preventDefault();
+          const isHidden = details?.classList.contains('hidden');
+          
+          cards.forEach(c => {
+            c.querySelector('.card-details')?.classList.add('hidden');
+            c.querySelector('.chevron-icon')?.classList.remove('rotate-180');
+          });
 
-        if (isHidden) {
-          details?.classList.remove('hidden');
-          chevron?.classList.add('rotate-180');
+          if (isHidden) {
+            details?.classList.remove('hidden');
+            chevron?.classList.add('rotate-180');
+            selectThisPackage();
+          }
+        };
+      }
+
+      if (selectBtn) {
+        selectBtn.onclick = (e) => {
+          e.stopPropagation();
           selectThisPackage();
-        }
-      });
-
-      selectBtn?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        selectThisPackage();
-      });
+        };
+      }
     });
 
     // 4. WHATSAPP SUBMIT FORM
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!selectedPackage) return;
+    if (form) {
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        if (!selectedPackage) return;
 
-      const name = document.getElementById('fullName').value.trim();
-      const date = document.getElementById('sessionDate').value;
+        const nameInput = document.getElementById('fullName') as HTMLInputElement;
+        const dateInput = document.getElementById('sessionDate') as HTMLInputElement;
 
-      if (!name || !date) {
-        alert("Harap isi nama dan tanggal sesi Anda.");
-        return;
-      }
+        const name = nameInput?.value.trim() || "";
+        const date = dateInput?.value || "";
 
-      const phoneNumber = "6285163096956";
-      const message = `Halo Admin Seisipotret, Saya ingin memesan layanan dokumentasi.
+        if (!name || !date) {
+          alert("Harap isi nama dan tanggal sesi Anda.");
+          return;
+        }
+
+        const phoneNumber = "6285163096956";
+        const message = `Halo Admin Seisipotret, Saya ingin memesan layanan dokumentasi.
 
 Nama : ${name}
-Destinasi : Pelataran Mekkah
+Destinasi : ${document.title || 'Layanan'}
 Tanggal : ${date}
 Paket Dipilih:
 - ${selectedPackage.name} (${selectedPackage.duration})
@@ -639,13 +664,19 @@ Catatan: ${selectedPackage.subtitle}
 
 Mohon konfirmasi ketersediaan jadwal. Terima kasih.`;
 
-      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-    });
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+      };
+    }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPageScript);
-  } else {
-    initPageScript();
-  }
+  // Bind ulang setiap kali navigasi selesai
+  document.addEventListener('astro:page-load', initPageScript);
+
+  // Bersihkan timer sebelum berpindah halaman
+  document.addEventListener('astro:before-preparation', () => {
+    if (slideTimer) {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    }
+  });
 </script>
