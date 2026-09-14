@@ -1,44 +1,51 @@
 ---
 // src/pages/syarat-ketentuan.astro
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import CTASection from '../components/CTASection.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import CTASection from "../components/CTASection.astro";
+import Footer from "../components/Footer.astro";
 
 const termsList = [
   {
     title: "1. Pembayaran DP (Down Payment)",
-    description: "Pembayaran DP sebesar 50% dibutuhkan untuk mengunci tanggal dan waktu booking.",
+    description:
+      "Pembayaran DP sebesar 50% dibutuhkan untuk mengunci tanggal dan waktu booking.",
     bankInfo: {
       bank: "MANDIRI",
       accountNumber: "1050021131770",
-      accountName: "MUHAMMAD THORIQ AKHY"
-    }
+      accountName: "MUHAMMAD THORIQ AKHY",
+    },
   },
   {
     title: "2. Ketentuan Pengembalian DP",
-    description: "DP yang sudah dibayarkan dapat dikembalikan dengan syarat pembatalan wajib dilakukan secara resmi di atas H-3 sebelum jadwal pemotretan."
+    description:
+      "DP yang sudah dibayarkan dapat dikembalikan dengan syarat pembatalan wajib dilakukan secara resmi di atas H-3 sebelum jadwal pemotretan.",
   },
   {
     title: "3. Pelunasan Pembayaran",
-    description: "Pelunasan seluruh sisa pembayaran dilakukan secara langsung setelah sesi foto selesai."
+    description:
+      "Pelunasan seluruh sisa pembayaran dilakukan secara langsung setelah sesi foto selesai.",
   },
   {
     title: "4. Jadwal Pemotretan",
-    description: "Harap memastikan tanggal dan waktu pemotretan sudah final sebelum melakukan konfirmasi booking."
+    description:
+      "Harap memastikan tanggal dan waktu pemotretan sudah final sebelum melakukan konfirmasi booking.",
   },
   {
     title: "5. Ketepatan Waktu",
-    description: "Waktu sesi foto akan dimulai tepat sesuai dengan jadwal yang telah disepakati bersama sebelumnya."
+    description:
+      "Waktu sesi foto akan dimulai tepat sesuai dengan jadwal yang telah disepakati bersama sebelumnya.",
   },
   {
     title: "6. Tone Warna & Editing Foto",
-    description: "Kami tidak menerima permintaan khusus terkait perubahan tone warna foto dan tidak melakukan manipulasi foto seperti perubahan bentuk tubuh."
+    description:
+      "Kami tidak menerima permintaan khusus terkait perubahan tone warna foto dan tidak melakukan manipulasi foto seperti perubahan bentuk tubuh.",
   },
   {
     title: "7. Ketentuan Unggah Media Sosial",
-    description: "Mohon untuk tidak menandai (tag) akun media sosial kami jika mengunggah foto mentah (raw file) atau hasil editan sendiri."
-  }
+    description:
+      "Mohon untuk tidak menandai (tag) akun media sosial kami jika mengunggah foto mentah (raw file) atau hasil editan sendiri.",
+  },
 ];
 ---
 
@@ -47,17 +54,18 @@ const termsList = [
 
   <main class="bg-[#F7F9FB] dark:bg-slate-950 transition-colors duration-300 pt-32 pb-24">
     <div class="max-w-4xl mx-auto px-6 md:px-12 space-y-12">
-      
       <!-- Header Section -->
       <div class="space-y-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-[#4a88bc] block">
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#4a88bc] block">
           LEGAL
         </span>
-        <h1 class="text-3xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight">
-          Syarat <span class="text-[#4a88bc] font-normal italic">&</span> Ketentuan
+        <h1 class="font-serif text-3xl md:text-5xl text-slate-900 dark:text-white tracking-tight">
+          Syarat <span class="text-[#4a88bc] font-normal italic">&</span>{" "}
+          Ketentuan
         </h1>
         <p class="text-sm md:text-base text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-2xl">
-          Harap membaca syarat dan ketentuan berikut dengan teliti sebelum menggunakan layanan dokumentasi Seisipotret.
+          Harap membaca syarat dan ketentuan berikut dengan teliti sebelum
+          menggunakan layanan dokumentasi Seisipotret.
         </p>
       </div>
 
@@ -73,9 +81,14 @@ const termsList = [
             </p>
             {item.bankInfo && (
               <div class="mt-3 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 space-y-1 max-w-md">
-                <span class="text-xs font-bold uppercase tracking-wider text-[#4a88bc] block">Rekening Pembayaran:</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-[#4a88bc] block">
+                  Rekening Pembayaran:
+                </span>
                 <p class="text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                  {item.bankInfo.bank} — <span class="font-mono tracking-wider">{item.bankInfo.accountNumber}</span>
+                  {item.bankInfo.bank} —{" "}
+                  <span class="font-mono tracking-wider">
+                    {item.bankInfo.accountNumber}
+                  </span>
                 </p>
                 <p class="text-xs text-slate-500 dark:text-slate-400 uppercase">
                   a.n. {item.bankInfo.accountName}
@@ -85,7 +98,6 @@ const termsList = [
           </div>
         ))}
       </div>
-
     </div>
   </main>
 

@@ -2,19 +2,22 @@
 // src/components/Hero.astro
 ---
 
-<section id="hero-section" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden cursor-pointer select-none">
+<section
+  id="hero-section"
+  class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden cursor-pointer select-none"
+>
   <!-- Background Overlay & Video -->
   <div class="absolute inset-0 z-0 pointer-events-none">
     <!-- Overlay Transparan -->
     <div class="absolute inset-0 bg-gradient-to-b from-slate-100/60 via-slate-100/80 to-slate-50 dark:from-slate-950/70 dark:via-slate-950/85 dark:to-slate-950 z-10"></div>
-    
+
     <!-- Video Latar Belakang Hero -->
-    <video 
+    <video
       id="hero-video"
-      autoplay 
-      loop 
-      muted 
-      playsinline 
+      autoplay
+      loop
+      muted
+      playsinline
       preload="auto"
       poster="https://myvitamine.co.id/assets/article/image/kabah.webp?q=80&w=1920&auto=format&fit=crop"
       class="w-full h-full object-cover object-center filter blur-[1px]"
@@ -24,35 +27,55 @@
   </div>
 
   <!-- Hero Content -->
-  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center pointer-events-auto">
-    <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight leading-tight mb-6">
-      SATU PLATFORM, SEJUTA <span class="italic text-[#4a88bc]">KEMUDAHAN</span> MENUJU BAITULLAH
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center pointer-events-auto">
+    <!-- 1. TITLE KOMPONEN -->
+    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white uppercase tracking-tight leading-tight sm:leading-tight mb-4 md:mb-6">
+      SATU PERJALANAN, SERIBU{" "}
+      <span class="italic font-normal text-[#4a88bc]">MOMEN</span> UNTUK
+      DIKENANG
     </h1>
 
-    <p class="text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
-      Wujudkan perjalanan umrah yang lebih mudah, aman, dan penuh keberkahan melalui layanan terpadu dan dokumentasi profesional yang dirancang untuk para tamu Allah.
+    <!-- 2. DESKRIPSI -->
+    <p class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-6 md:mb-8">
+      Abadikan setiap momen perjalanan Haramain tanpa mengurangi ketenangan dan
+      kekhusyukan ibadah Anda.
     </p>
 
-    <!-- Action CTA -->
-    <div class="mb-6">
-      <a 
-        href="#paket" 
-        class="inline-flex items-center gap-2 bg-[#4a88bc] hover:bg-[#3b719f] text-white px-7 py-3.5 rounded-full text-sm font-medium transition shadow-lg hover:shadow-xl"
+    <!-- 3. BUTTON ACTION -->
+    <div class="mb-6 md:mb-8">
+      <a
+        href="#paket"
+        class="inline-flex items-center gap-2.5 bg-[#4a88bc] hover:bg-[#3b719f] text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
       >
-        Pilih paket
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        <span>Pilih Paket</span>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          ></path>
         </svg>
       </a>
     </div>
 
-    <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto font-light">
-      Pilih layanan sesuai kebutuhan perjalanan Anda: dokumentasi perjalanan, visual umrah, land arrangement, dan muthawif bersama Seisipotret.
+    <!-- 4. NOTES -->
+    <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto font-light leading-relaxed">
+      Pilih layanan dokumentasi sesuai kebutuhan perjalanan Anda: foto, video,
+      cinematic content, dan social media content bersama Seisi Potret.
     </p>
   </div>
 
   <!-- Petunjuk Teks Kecil di Kiri Bawah (Akan Hilang Setelah Klik 2x) -->
-  <div id="audio-hint" class="absolute bottom-6 left-6 z-20 pointer-events-none transition-opacity duration-500 ease-out">
+  <div
+    id="audio-hint"
+    class="absolute bottom-6 left-6 z-20 pointer-events-none transition-opacity duration-500 ease-out"
+  >
     <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-md border border-white/10 text-white/80 text-[11px] font-light shadow-md">
       <span>Klik 2x untuk mute/unmute</span>
     </div>
@@ -61,31 +84,33 @@
 
 <script>
   function setupHeroAudioToggle() {
-    const heroSection = document.getElementById('hero-section');
-    const heroVideo = document.getElementById('hero-video') as HTMLVideoElement | null;
-    const audioHint = document.getElementById('audio-hint');
+    const heroSection = document.getElementById("hero-section");
+    const heroVideo = document.getElementById(
+      "hero-video",
+    ) as HTMLVideoElement | null;
+    const audioHint = document.getElementById("audio-hint");
 
     if (!heroSection || !heroVideo) return;
 
     // Paksa Mute saat pertama kali dimuat
     heroVideo.muted = true;
 
-    heroSection.addEventListener('dblclick', (e) => {
+    heroSection.addEventListener("dblclick", (e) => {
       const target = e.target as HTMLElement;
-      if (target.closest('a') || target.closest('button')) return;
+      if (target.closest("a") || target.closest("button")) return;
 
       // Toggle Mute / Unmute
       heroVideo.muted = !heroVideo.muted;
 
       // Hilangkan teks petunjuk secara halus saat pertama kali di-double click
-      if (audioHint && !audioHint.classList.contains('opacity-0')) {
-        audioHint.classList.add('opacity-0');
+      if (audioHint && !audioHint.classList.contains("opacity-0")) {
+        audioHint.classList.add("opacity-0");
         setTimeout(() => {
-          audioHint.style.display = 'none';
+          audioHint.style.display = "none";
         }, 500);
       }
     });
   }
 
-  document.addEventListener('astro:page-load', setupHeroAudioToggle);
+  document.addEventListener("astro:page-load", setupHeroAudioToggle);
 </script>

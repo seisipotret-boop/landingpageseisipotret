@@ -1,16 +1,16 @@
 ---
-import '../styles/global.css';
-import FloatingWA from '../components/FloatingWA.astro';
-import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import FloatingWA from "../components/FloatingWA.astro";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { 
-  title = "Seisipotret - Jasa Dokumentasi Jemaah Umroh VVIP", 
-  description = "Abadikan momen suci Anda di Tanah Suci dengan layanan dokumentasi profesional Seisipotret." 
+const {
+  title = "Seisipotret - Jasa Dokumentasi Jemaah Umroh VVIP",
+  description = "Abadikan momen suci Anda di Tanah Suci dengan layanan dokumentasi profesional Seisipotret.",
 } = Astro.props;
 ---
 
@@ -26,28 +26,30 @@ const {
     <ClientRouter />
     <!-- Script Deteksi Mode Awal -->
     <script is:inline>
-  const applyTheme = () => {
-    const theme = localStorage.getItem('theme');
-    if (
-      theme === 'dark' ||
-      (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
+      const applyTheme = () => {
+        const theme = localStorage.getItem("theme");
+        if (
+          theme === "dark" ||
+          (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      };
 
-  // Terapkan saat awal muat
-  applyTheme();
+      // Terapkan saat awal muat
+      applyTheme();
 
-  // Terapkan ulang saat navigasi Astro View Transitions
-  document.addEventListener('astro:after-swap', applyTheme);
-</script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      // Terapkan ulang saat navigasi Astro View Transitions
+      document.addEventListener("astro:after-swap", applyTheme);
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
     <slot />

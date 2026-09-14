@@ -1,0 +1,271 @@
+---
+// src/pages/faq.astro
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import CTASection from "../components/CTASection.astro";
+import Footer from "../components/Footer.astro";
+
+const pageTitle = "Pertanyaan Yang Sering Diajukan";
+
+const faqs = [
+  {
+    id: "faq-1",
+    question: "Apakah dokumentasi akan mengganggu proses ibadah?",
+    answer:
+      "Tidak. Seisi Potret mengutamakan kenyamanan dan kekhusyukan jamaah. Proses dokumentasi dilakukan secara natural dan menyesuaikan situasi di lapangan, sehingga Anda tidak perlu terus-menerus memikirkan kamera.",
+  },
+  {
+    id: "faq-2",
+    question: "Apakah Seisi Potret melayani foto dan video sekaligus?",
+    answer:
+      "Ya. Kami menyediakan layanan foto, video, maupun kombinasi keduanya sesuai paket dan kebutuhan perjalanan Anda.",
+  },
+  {
+    id: "faq-3",
+    question: "Apakah bisa untuk personal, pasangan, keluarga, atau rombongan?",
+    answer:
+      "Bisa. Layanan tersedia untuk personal, couple, family, hingga group dan rombongan travel dengan kebutuhan dokumentasi yang dapat disesuaikan.",
+  },
+  {
+    id: "faq-4",
+    question: "Apakah bisa request lokasi, konsep, atau referensi tertentu?",
+    answer:
+      "Bisa. Silakan komunikasikan terlebih dahulu melalui WhatsApp agar tim Seisi Potret dapat menyesuaikan request dengan kondisi lokasi, waktu, aturan setempat, serta paket yang dipilih.",
+  },
+  {
+    id: "faq-5",
+    question: "Bagaimana cara melakukan booking?",
+    answer:
+      "Hubungi Seisi Potret melalui WhatsApp, pilih layanan dan jadwal yang tersedia, kemudian lakukan DP 50% untuk mengamankan jadwal produksi.",
+  },
+  {
+    id: "faq-6",
+    question: "Kapan hasil foto dan video akan diterima?",
+    answer:
+      "Estimasi pengerjaan mengikuti jenis paket dan volume produksi. Setelah proses editing selesai, hasil akhir akan dikirim secara digital melalui Google Drive.",
+  },
+  {
+    id: "faq-7",
+    question: "Apakah file mentahan foto dan video diberikan?",
+    answer:
+      "File mentahan diberikan apabila termasuk dalam benefit paket atau telah disepakati sebelumnya dengan tim Seisi Potret.",
+  },
+  {
+    id: "faq-8",
+    question: "Bagaimana jika file dokumentasi saya suatu hari hilang?",
+    answer:
+      "Seisi Potret menyimpan arsip hasil dokumentasi dalam jangka panjang sebagai bagian dari upaya kami menjaga kenangan perjalanan client. Jika file Anda hilang, silakan hubungi kami untuk pengecekan kembali arsip yang masih tersedia.",
+  },
+];
+
+const whatsappNumber = "6285163096956";
+const waDirectUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo Admin Seisipotret, saya ingin bertanya lebih lanjut mengenai layanan dokumentasi.")}`;
+---
+
+<Layout title={`${pageTitle} - Seisi Potret`}>
+  <Navbar />
+
+  <main class="bg-white dark:bg-slate-950 transition-colors duration-300">
+    <!-- 1. FULLSCREEN HERO SECTION (Sama persis dengan Halaman Layanan) -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-100/60 via-slate-100/80 to-slate-50 dark:from-slate-950/70 dark:via-slate-950/85 dark:to-slate-950 z-10"></div>
+        <img
+          src="https://images.pexels.com/photos/15369686/pexels-photo-15369686.jpeg?q=80&w=1920&auto=format&fit=crop"
+          alt="FAQ Background"
+          class="w-full h-full object-cover object-center filter blur-[1px]"
+        />
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#4a88bc] block">
+          BANTUAN & INFORMASI - SEISI POTRET
+        </span>
+
+        <h1 class="font-serif text-3xl md:text-5xl text-slate-900 dark:text-white tracking-tight">
+          Pertanyaan Yang Sering <br class="hidden sm:inline" />
+          <span class="italic font-normal text-[#4a88bc]">Diajukan</span>
+        </h1>
+
+        <p class="text-sm md:text-base text-slate-600 dark:text-slate-400 font-light leading-relaxed">
+          Temukan jawaban cepat atas pertanyaan umum seputar alur booking,
+          pelaksanaan dokumentasi, hingga penyerahan berkas.
+        </p>
+
+        <div class="pt-2">
+          <a
+            href="#faq-content-section"
+            class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
+          >
+            <span>Lihat Pertanyaan</span>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="pt-8 flex flex-col items-center justify-center gap-2 opacity-70 animate-bounce">
+          <span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">
+            Scroll Ke Bawah
+          </span>
+          <svg
+            class="w-4 h-4 text-[#4a88bc]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MAIN FAQ CONTENT SECTION -->
+    <section id="faq-content-section" class="py-20 scroll-mt-20">
+      <div class="max-w-4xl mx-auto px-6 md:px-8 space-y-12">
+        <!-- FAQ ACCORDION LIST -->
+        <div class="space-y-4" id="faq-list">
+          {faqs.map((faq) => (
+            <div
+              class="faq-card bg-white dark:bg-slate-900 rounded-2xl md:rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
+              data-faq-id={faq.id}
+            >
+              <button
+                type="button"
+                class="faq-toggle w-full p-5 md:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                aria-expanded="false"
+              >
+                <h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white pr-2 leading-snug">
+                  {faq.question}
+                </h3>
+
+                <div class="faq-icon-bg w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 transition-all duration-300">
+                  <svg
+                    class="faq-chevron w-4 h-4 text-slate-500 dark:text-slate-400 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+
+              <div class="faq-answer hidden px-5 pb-6 md:px-6 md:pb-6 pt-0 border-t border-transparent transition-all duration-300">
+                <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed pt-3 border-t border-slate-100 dark:border-slate-800/80">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- STILL HAVE QUESTIONS SECTION -->
+        <div class="text-center pt-8 space-y-4">
+          <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light">
+            Masih punya pertanyaan lain?
+          </p>
+
+          <div>
+            <a
+              href={waDirectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#4a88bc] hover:bg-[#3b72a0] text-white text-xs md:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+              <span>Chat WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <CTASection />
+  <Footer />
+</Layout>
+
+<script>
+  function initFaqScript() {
+    const cards = document.querySelectorAll(".faq-card");
+
+    cards.forEach((card) => {
+      const toggleBtn = card.querySelector(".faq-toggle") as HTMLElement;
+      const answer = card.querySelector(".faq-answer");
+      const chevron = card.querySelector(".faq-chevron");
+      const iconBg = card.querySelector(".faq-icon-bg");
+
+      if (toggleBtn) {
+        toggleBtn.onclick = () => {
+          const isOpen = !answer?.classList.contains("hidden");
+
+          // Tutup semua FAQ lainnya (Mode Accordion Tunggal)
+          cards.forEach((otherCard) => {
+            const otherAnswer = otherCard.querySelector(".faq-answer");
+            const otherChevron = otherCard.querySelector(".faq-chevron");
+            const otherIconBg = otherCard.querySelector(".faq-icon-bg");
+            const otherToggle = otherCard.querySelector(".faq-toggle");
+
+            otherAnswer?.classList.add("hidden");
+            otherChevron?.classList.remove("rotate-180");
+            otherIconBg?.classList.remove("bg-[#4a88bc]", "text-white");
+            otherIconBg?.classList.add("bg-slate-100", "dark:bg-slate-800");
+            otherToggle?.setAttribute("aria-expanded", "false");
+            otherCard.classList.remove(
+              "border-[#4a88bc]/50",
+              "ring-2",
+              "ring-[#4a88bc]/10",
+            );
+            otherCard.classList.add(
+              "border-slate-200/80",
+              "dark:border-slate-800",
+            );
+          });
+
+          // Buka jika sebelumnya tertutup
+          if (!isOpen) {
+            answer?.classList.remove("hidden");
+            chevron?.classList.add("rotate-180");
+            iconBg?.classList.remove("bg-slate-100", "dark:bg-slate-800");
+            iconBg?.classList.add("bg-[#4a88bc]", "text-white");
+            toggleBtn.setAttribute("aria-expanded", "true");
+            card.classList.remove(
+              "border-slate-200/80",
+              "dark:border-slate-800",
+            );
+            card.classList.add(
+              "border-[#4a88bc]/50",
+              "ring-2",
+              "ring-[#4a88bc]/10",
+            );
+          }
+        };
+      }
+    });
+  }
+
+  document.addEventListener("astro:page-load", initFaqScript);
+</script>

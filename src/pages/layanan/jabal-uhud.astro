@@ -1,0 +1,932 @@
+---
+// src/pages/layanan/jabal-uhud.astro
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTASection from "../../components/CTASection.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "Jabal Uhud";
+const kursSAR = 4800;
+
+const galleryImages = [
+  {
+    url: "https://images.pexels.com/photos/15369686/pexels-photo-15369686.jpeg?q=80&w=800&auto=format&fit=crop",
+    title: "Jabal Uhud Landscape",
+    desc: "Perbukitan bersejarah Jabal Uhud yang megah di Kota Madinah",
+  },
+  {
+    url: "https://images.pexels.com/photos/11181577/pexels-photo-11181577.jpeg?q=80&w=800&auto=format&fit=crop",
+    title: "Sesi Foto Jabal Uhud",
+    desc: "Dokumentasi eksklusif dengan latar panorama gunung bersejarah",
+  },
+];
+
+const packages = [
+  {
+    id: "single-package-uhud",
+    name: "Foto & Video (Single)",
+    duration: "120 MENIT",
+    subtitle: "Individual Session",
+    priceSAR: 550,
+    details: [
+      "Durasi sesi 120 menit",
+      "1 Edited Highlight Video durasi 45–60 detik",
+      "Edited Photos",
+      "Seluruh File Mentahan Foto & Video",
+    ],
+    excludes: [
+      "Overtime (+100 SAR / 30 menit)",
+      "Transportation",
+      "Additional Property / Props",
+    ],
+  },
+  {
+    id: "couple-package-uhud",
+    name: "Foto & Video (Couple)",
+    duration: "120 MENIT",
+    subtitle: "Max 2 Person",
+    priceSAR: 600,
+    details: [
+      "Durasi sesi 120 menit",
+      "1 Edited Highlight Video durasi 45–60 detik",
+      "Edited Photos",
+      "Seluruh File Mentahan Foto & Video",
+    ],
+    excludes: [
+      "Overtime (+100 SAR / 30 menit)",
+      "Transportation",
+      "Additional Property / Props",
+    ],
+  },
+  {
+    id: "family-package-uhud",
+    name: "Foto & Video (Family)",
+    duration: "90 MENIT",
+    subtitle: "Max 5 Person",
+    priceSAR: 800,
+    details: [
+      "Durasi sesi 120 menit",
+      "1 Edited Highlight Video durasi 45–60 detik",
+      "Edited Photos",
+      "Seluruh File Mentahan Foto & Video",
+    ],
+    excludes: [
+      "Overtime (+100 SAR / 30 menit)",
+      "Transportation",
+      "Additional Property / Props",
+    ],
+  },
+];
+
+const notes = [
+  "Jadwal dan pelaksanaan sesi menyesuaikan kondisi cuaca, akses lokasi, dan situasi di lapangan",
+  "Penggunaan GMC ke area puncak wajib dikonfirmasi terlebih dahulu.",
+  "Request kebutuhan tambahan dapat dikomunikasikan melalui WhatsApp sebelum hari produksi",
+];
+---
+
+<Layout title={`${pageTitle} - Seisipotret Documentation`}>
+  <Navbar />
+
+  <main class="bg-white dark:bg-slate-950 transition-colors duration-300">
+    <!-- 1. FULLSCREEN HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-100/60 via-slate-100/80 to-slate-50 dark:from-slate-950/70 dark:via-slate-950/85 dark:to-slate-950 z-10"></div>
+        <img
+          src="https://images.pexels.com/photos/15369686/pexels-photo-15369686.jpeg?q=80&w=1920&auto=format&fit=crop"
+          alt="Jabal Uhud Background"
+          class="w-full h-full object-cover object-center filter blur-[1px]"
+        />
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
+        <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-[#4a88bc] block">
+          SEISI POTRET - Layanan Dokumentasi Profesional di Tanah Suci
+        </span>
+
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white uppercase tracking-tight leading-tight sm:leading-tight mb-4 md:mb-6">
+          Jabal Uhud
+        </h1>
+
+        <p class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-6 md:mb-8">
+          Abadikan momen bersejarah dan kenangan indah Anda di Bukit Uhud, Kota
+          Madinah, dengan layanan dokumentasi foto & video profesional.
+        </p>
+
+        <div class="pt-2">
+          <a
+            href="#main-booking-section"
+            class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
+          >
+            <span>Pesan Dokumentasi</span>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="pt-8 flex flex-col items-center justify-center gap-2 opacity-70 animate-bounce">
+          <span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">
+            Scroll Ke Bawah
+          </span>
+          <svg
+            class="w-4 h-4 text-[#4a88bc]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MAIN CONTENT SECTION -->
+    <section id="main-booking-section" class="py-20 scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- LEFT COLUMN (Span 7) -->
+          <div class="lg:col-span-7 space-y-8">
+            <div>
+              <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight uppercase">
+                PILIH PAKET DOKUMENTASI
+              </h2>
+
+              <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mt-3 mb-3">
+                <a
+                  href="/#layanan"
+                  class="hover:text-[#4a88bc] transition flex items-center gap-1"
+                >
+                  <span>← Layanan</span>
+                </a>
+                <span>/</span>
+                <span class="text-slate-900 dark:text-white font-bold">
+                  {pageTitle}
+                </span>
+              </div>
+
+              <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base font-light leading-relaxed">
+                Pilih paket dokumentasi terbaik untuk sesi di Jabal Uhud. Klik
+                paket di bawah ini untuk melihat detail rincian fasilitas.
+              </p>
+            </div>
+
+            <!-- Slider Galeri Foto -->
+            <div class="space-y-2">
+              <span class="text-[10px] font-bold text-[#4a88bc] uppercase tracking-widest block">
+                PREVIEW DESTINASI JABAL UHUD
+              </span>
+
+              <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-4/3 sm:aspect-16/10 bg-slate-900 group">
+                <div
+                  id="main-slider"
+                  class="w-full h-full flex transition-transform duration-500 ease-out"
+                >
+                  {galleryImages.map((img) => (
+                    <div
+                      class="slider-item w-full h-full shrink-0 relative cursor-pointer"
+                      data-img-url={img.url}
+                      data-img-title={img.title}
+                    >
+                      <img
+                        src={img.url}
+                        alt={img.title}
+                        class="w-full h-full object-cover"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                    </div>
+                  ))}
+                </div>
+
+                <div class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-slate-950/50 backdrop-blur-md text-[11px] font-medium text-white tracking-wider">
+                  <span id="slider-current-index">1</span> /{" "}
+                  {galleryImages.length}
+                </div>
+
+                <button
+                  id="prev-btn"
+                  aria-label="Previous image"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/40 hover:bg-slate-950/70 backdrop-blur-md text-white flex items-center justify-center transition cursor-pointer"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
+                  </svg>
+                </button>
+
+                <button
+                  id="next-btn"
+                  aria-label="Next image"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/40 hover:bg-slate-950/70 backdrop-blur-md text-white flex items-center justify-center transition cursor-pointer"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </button>
+
+                <div
+                  id="slider-dots"
+                  class="absolute bottom-4 left-0 right-0 z-10 flex justify-center items-center gap-1.5"
+                >
+                  {galleryImages.map((_, i) => (
+                    <button
+                      class={`slider-dot rounded-full transition-all duration-300 ${i === 0 ? "bg-[#4a88bc] w-5 h-1.5" : "bg-white/60 w-1.5 h-1.5"}`}
+                      data-index={i}
+                      aria-label={`Slide ${i + 1}`}
+                    ></button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Pemilihan Paket (Accordion List dengan Radio Button) -->
+            <div class="space-y-4 pt-4" id="packages-list">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                Pilihan Paket Dokumentasi
+              </h3>
+
+              {packages.map((pkg) => (
+                <div
+                  class="package-card bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-300"
+                  data-package-id={pkg.id}
+                  data-package-name={pkg.name}
+                  data-package-price={pkg.priceSAR}
+                  data-package-subtitle={pkg.subtitle}
+                  data-package-duration={pkg.duration}
+                >
+                  <button
+                    type="button"
+                    class="card-toggle w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  >
+                    <div class="flex items-center gap-4">
+                      <div class="radio-indicator w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 transition-colors">
+                        <div class="radio-dot w-2.5 h-2.5 rounded-full bg-[#4a88bc] opacity-0 transition-opacity"></div>
+                      </div>
+                      <div>
+                        <div class="flex items-center gap-2">
+                          <h4 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
+                            {pkg.name}
+                          </h4>
+                          <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 tracking-wider">
+                            {pkg.duration}
+                          </span>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-0.5">
+                          {pkg.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 shrink-0">
+                      <div class="text-right">
+                        <span class="text-lg md:text-xl font-extrabold text-slate-900 dark:text-white block leading-none">
+                          {pkg.priceSAR} SAR
+                        </span>
+                        <span class="text-[10px] text-slate-400 font-light block mt-1">
+                          ± Rp{" "}
+                          {(pkg.priceSAR * kursSAR).toLocaleString("id-ID")}
+                        </span>
+                      </div>
+                      <svg
+                        class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+
+                  <div class="card-details hidden px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/50 space-y-6">
+                    <div>
+                      <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc] mb-2">
+                        INCLUDE
+                      </h5>
+                      <ul class="space-y-2">
+                        {pkg.details.map((detail) => (
+                          <li class="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                            <svg
+                              class="w-4 h-4 text-[#4a88bc] shrink-0 mt-0.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"
+                              ></path>
+                            </svg>
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {pkg.excludes && (
+                      <div>
+                        <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc] mb-2">
+                          EXCLUDE
+                        </h5>
+                        <ul class="space-y-2">
+                          {pkg.excludes.map((ex) => (
+                            <li class="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+                              <span class="text-[#4a88bc] font-bold shrink-0">
+                                x
+                              </span>
+                              <span>{ex}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Notes Section -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
+              <div class="flex items-center gap-2 text-[#4a88bc]">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0"
+                  ></path>
+                </svg>
+                <h3 class="text-sm font-bold uppercase tracking-wider">
+                  Catatan & Ketentuan Paket
+                </h3>
+              </div>
+              <ul class="space-y-2 pl-2">
+                {notes.map((note) => (
+                  <li class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
+                    <span class="text-[#4a88bc] font-bold">•</span>
+                    <span>{note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN (Span 5): Sticky Booking Box -->
+          <div class="lg:col-span-5 sticky top-28">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 border border-slate-200/80 dark:border-slate-800 shadow-lg space-y-6">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Booking Details
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-1">
+                  Pilih salah satu paket di samping, lalu lengkapi data
+                  pemesanan.
+                </p>
+              </div>
+
+              <!-- Status Box -->
+              <div class="bg-slate-100/80 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 space-y-3">
+                <div class="flex items-center gap-2 text-xs border-b border-slate-200 dark:border-slate-700/60 pb-2">
+                  <svg
+                    class="w-4 h-4 text-slate-500 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                  </svg>
+                  <span class="text-slate-500 font-medium">Layanan:</span>
+                  <span class="font-bold text-slate-900 dark:text-white">
+                    {pageTitle}
+                  </span>
+                </div>
+
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                    PAKET DIPILIH:
+                  </span>
+                  <div
+                    id="selected-package-display"
+                    class="text-xs text-slate-400 italic"
+                  >
+                    Belum memilih paket
+                  </div>
+                </div>
+
+                <div class="pt-2 border-t border-slate-200 dark:border-slate-700/60 flex justify-between items-baseline">
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    ESTIMASI TOTAL:
+                  </span>
+                  <div class="text-right">
+                    <span
+                      id="total-price-sar"
+                      class="text-xl font-extrabold text-[#4a88bc] block"
+                    >
+                      0 SAR
+                    </span>
+                    <span
+                      id="total-price-idr"
+                      class="text-[10px] text-slate-400 block font-light"
+                    >
+                      ± Rp 0
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Inputs -->
+              <form id="booking-form" class="space-y-4">
+                <div>
+                  <label
+                    for="fullName"
+                    class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5"
+                  >
+                    NAMA LENGKAP
+                  </label>
+                  <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        ></path>
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      id="fullName"
+                      required
+                      placeholder="Nama Anda"
+                      class="w-full pl-10 pr-4 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-transparent focus:border-[#4a88bc] text-xs text-slate-900 dark:text-white placeholder-slate-400 outline-none transition"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="sessionDate"
+                    class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5"
+                  >
+                    TANGGAL SESI
+                  </label>
+                  <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                    </span>
+                    <input
+                      type="date"
+                      id="sessionDate"
+                      required
+                      class="w-full pl-10 pr-4 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-transparent focus:border-[#4a88bc] text-xs text-slate-900 dark:text-white outline-none transition"
+                    />
+                  </div>
+                </div>
+
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    id="submit-btn"
+                    disabled
+                    class="w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm"
+                  >
+                    <span>KIRIM BOOKING KE WHATSAPP</span>
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal Fullscreen -->
+  <div
+    id="lightbox-modal"
+    class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex-col items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300"
+  >
+    <button
+      id="lightbox-close"
+      aria-label="Close modal"
+      class="absolute top-6 right-6 text-white/80 hover:text-white p-3 rounded-full bg-white/10 backdrop-blur-md transition cursor-pointer"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+    <div class="max-w-4xl w-full flex flex-col items-center text-center space-y-4">
+      <img
+        id="lightbox-img"
+        src=""
+        alt="Full Preview"
+        class="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+      />
+      <h3 id="lightbox-title" class="text-xl font-bold text-white"></h3>
+    </div>
+  </div>
+
+  <CTASection />
+  <Footer />
+</Layout>
+
+<script>
+  let slideTimer: ReturnType<typeof setInterval> | null = null;
+  const KURS = 4800;
+
+  function initPageScript() {
+    // 1. AUTOMATIC SLIDER LOGIC
+    const slider = document.getElementById("main-slider");
+    const sliderItems = document.querySelectorAll(".slider-item");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const dots = document.querySelectorAll(".slider-dot");
+    const currentIndexDisplay = document.getElementById("slider-current-index");
+
+    let currentIndex = 0;
+    const totalItems = sliderItems.length;
+
+    const stopAutoSlide = () => {
+      if (slideTimer) {
+        clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    };
+
+    const updateSlider = (index: number) => {
+      if (totalItems === 0) return;
+      currentIndex = (index + totalItems) % totalItems;
+      if (slider)
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      if (currentIndexDisplay)
+        currentIndexDisplay.textContent = (currentIndex + 1).toString();
+
+      dots.forEach((dot, i) => {
+        if (i === currentIndex) {
+          dot.className =
+            "slider-dot rounded-full bg-[#4a88bc] w-5 h-1.5 transition-all duration-300";
+        } else {
+          dot.className =
+            "slider-dot rounded-full bg-white/60 w-1.5 h-1.5 transition-all duration-300";
+        }
+      });
+    };
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      if (totalItems > 0) {
+        slideTimer = setInterval(() => {
+          updateSlider(currentIndex + 1);
+        }, 3500);
+      }
+    };
+
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        updateSlider(currentIndex - 1);
+        startAutoSlide();
+      };
+    }
+
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        updateSlider(currentIndex + 1);
+        startAutoSlide();
+      };
+    }
+
+    dots.forEach((dot) => {
+      (dot as HTMLElement).onclick = (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const idx = parseInt(target.dataset.index || "0", 10);
+        updateSlider(idx);
+        startAutoSlide();
+      };
+    });
+
+    startAutoSlide();
+
+    // 2. LIGHTBOX MODAL
+    const modal = document.getElementById("lightbox-modal");
+    const modalImg = document.getElementById(
+      "lightbox-img",
+    ) as HTMLImageElement;
+    const modalTitle = document.getElementById("lightbox-title");
+    const modalClose = document.getElementById("lightbox-close");
+
+    sliderItems.forEach((item) => {
+      (item as HTMLElement).onclick = () => {
+        stopAutoSlide();
+        const element = item as HTMLElement;
+        const url = element.dataset.imgUrl || "";
+        const title = element.dataset.imgTitle || "";
+
+        if (modalImg && modalTitle && modal) {
+          modalImg.src = url;
+          modalTitle.textContent = title;
+          modal.classList.remove("hidden");
+          setTimeout(() => modal.classList.remove("opacity-0"), 10);
+        }
+      };
+    });
+
+    const closeModal = () => {
+      if (!modal) return;
+      modal.classList.add("opacity-0");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+        startAutoSlide();
+      }, 300);
+    };
+
+    if (modalClose) modalClose.onclick = closeModal;
+    if (modal) {
+      modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+      };
+    }
+
+    // 3. STATE BOOKING SYSTEM & ACCORDION
+    let selectedPackage: {
+      id: string;
+      name: string;
+      priceSAR: number;
+      subtitle: string;
+      duration: string;
+    } | null = null;
+
+    const cards = document.querySelectorAll(".package-card");
+    const displayBox = document.getElementById("selected-package-display");
+    const totalPriceSarEl = document.getElementById("total-price-sar");
+    const totalPriceIdrEl = document.getElementById("total-price-idr");
+    const submitBtn = document.getElementById(
+      "submit-btn",
+    ) as HTMLButtonElement;
+    const form = document.getElementById("booking-form") as HTMLFormElement;
+
+    const checkFormValidity = () => {
+      if (submitBtn) {
+        if (selectedPackage) {
+          submitBtn.disabled = false;
+          submitBtn.className =
+            "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5";
+        } else {
+          submitBtn.disabled = true;
+          submitBtn.className =
+            "w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm";
+        }
+      }
+    };
+
+    cards.forEach((card) => {
+      const cardEl = card as HTMLElement;
+      const toggleBtn = card.querySelector(".card-toggle") as HTMLElement;
+      const details = card.querySelector(".card-details");
+      const chevron = card.querySelector(".chevron-icon");
+      const radioDot = card.querySelector(".radio-dot");
+      const radioIndicator = card.querySelector(".radio-indicator");
+
+      toggleBtn.onclick = () => {
+        const pkgId = cardEl.dataset.packageId || "";
+        const pkgName = cardEl.dataset.packageName || "";
+        const pkgPrice = parseInt(cardEl.dataset.packagePrice || "0", 10);
+        const pkgSubtitle = cardEl.dataset.packageSubtitle || "";
+        const pkgDuration = cardEl.dataset.packageDuration || "";
+
+        const isAlreadySelected = selectedPackage?.id === pkgId;
+
+        // Reset semua accordion kartu lain
+        cards.forEach((otherCard) => {
+          const otherDetails = otherCard.querySelector(".card-details");
+          const otherChevron = otherCard.querySelector(".chevron-icon");
+          const otherRadioDot = otherCard.querySelector(".radio-dot");
+          const otherRadioInd = otherCard.querySelector(".radio-indicator");
+
+          otherCard.classList.remove(
+            "border-[#4a88bc]",
+            "ring-2",
+            "ring-[#4a88bc]/20",
+          );
+          otherCard.classList.add(
+            "border-slate-200/80",
+            "dark:border-slate-800",
+          );
+          otherDetails?.classList.add("hidden");
+          otherChevron?.classList.remove("rotate-180");
+          otherRadioDot?.classList.add("opacity-0");
+          otherRadioInd?.classList.remove(
+            "border-[#4a88bc]",
+            "bg-[#4a88bc]/10",
+          );
+          otherRadioInd?.classList.add(
+            "border-slate-300",
+            "dark:border-slate-700",
+          );
+        });
+
+        if (!isAlreadySelected) {
+          // Buka & aktifkan kartu yang dipilih
+          selectedPackage = {
+            id: pkgId,
+            name: pkgName,
+            priceSAR: pkgPrice,
+            subtitle: pkgSubtitle,
+            duration: pkgDuration,
+          };
+
+          cardEl.classList.remove(
+            "border-slate-200/80",
+            "dark:border-slate-800",
+          );
+          cardEl.classList.add(
+            "border-[#4a88bc]",
+            "ring-2",
+            "ring-[#4a88bc]/20",
+          );
+          details?.classList.remove("hidden");
+          chevron?.classList.add("rotate-180");
+          radioDot?.classList.remove("opacity-0");
+          radioIndicator?.classList.remove(
+            "border-slate-300",
+            "dark:border-slate-700",
+          );
+          radioIndicator?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
+
+          if (displayBox) {
+            displayBox.className =
+              "text-xs font-semibold text-slate-900 dark:text-white";
+            displayBox.innerHTML = `${pkgName} <span class="text-[#4a88bc]">(${pkgPrice} SAR)</span>`;
+          }
+
+          if (totalPriceSarEl)
+            totalPriceSarEl.textContent = `${pkgPrice.toLocaleString("id-ID")} SAR`;
+          if (totalPriceIdrEl)
+            totalPriceIdrEl.textContent = `± Rp ${(pkgPrice * KURS).toLocaleString("id-ID")}`;
+        } else {
+          // Jika diklik ulang, tutup pilihan
+          selectedPackage = null;
+          if (displayBox) {
+            displayBox.className = "text-xs text-slate-400 italic";
+            displayBox.textContent = "Belum memilih paket";
+          }
+          if (totalPriceSarEl) totalPriceSarEl.textContent = `0 SAR`;
+          if (totalPriceIdrEl) totalPriceIdrEl.textContent = `± Rp 0`;
+        }
+
+        checkFormValidity();
+      };
+    });
+
+    // 4. SUBMIT FORM TO WHATSAPP
+    if (form) {
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        if (!selectedPackage) {
+          alert("Harap pilih salah satu paket dokumentasi terlebih dahulu.");
+          return;
+        }
+
+        const nameInput = document.getElementById(
+          "fullName",
+        ) as HTMLInputElement;
+        const dateInput = document.getElementById(
+          "sessionDate",
+        ) as HTMLInputElement;
+        const meetingPointInput = document.getElementById(
+          "meetingPoint",
+        ) as HTMLInputElement;
+
+        const name = nameInput?.value.trim() || "";
+        const date = dateInput?.value || "";
+        const meetingPoint = meetingPointInput?.value.trim() || "Hotel Jamaah";
+
+        if (!name || !date) {
+          alert("Harap isi nama dan tanggal sesi Anda.");
+          return;
+        }
+
+        const phoneNumber = "6285163096956";
+
+        const message = `Halo Admin Seisipotret, Saya ingin memesan paket dokumentasi Jabal Uhud (Madinah).
+
+Nama : ${name}
+Paket Layanan : ${selectedPackage.name} (${selectedPackage.subtitle})
+Durasi Sesi : ${selectedPackage.duration}
+Tanggal Sesi : ${date}
+
+
+Lokasi Destinasi : Jabal Uhud (Madinah)
+Total Biaya : ${selectedPackage.priceSAR} SAR (± Rp ${(selectedPackage.priceSAR * KURS).toLocaleString("id-ID")})
+
+Mohon konfirmasi ketersediaan jadwal. Terima kasih.`;
+
+        window.open(
+          `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+      };
+    }
+  }
+
+  document.addEventListener("astro:page-load", initPageScript);
+  document.addEventListener("astro:before-preparation", () => {
+    if (slideTimer) {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    }
+  });
+</script>

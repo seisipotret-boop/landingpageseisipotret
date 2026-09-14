@@ -2,57 +2,217 @@
 // src/components/Footer.astro
 ---
 
-<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-400 text-xs py-12 transition-colors duration-300">
-  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-    
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-400 py-12 md:py-16 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
     <!-- Brand Info -->
     <div class="space-y-4 md:col-span-1">
-      <a href="/" class="text-base font-bold tracking-widest text-slate-900 dark:text-white uppercase">
-        SEISIPOTRET
-      </a>
-      <p class="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-        Layanan dokumentasi fotografi dan videografi profesional khusus perjalanan ibadah umroh VVIP & privat di Tanah Suci.
+      <div class="h-6 flex items-center">
+        <a
+          href="/"
+          class="text-sm font-bold tracking-widest text-slate-900 dark:text-white uppercase leading-none"
+        >
+          SEISIPOTRET
+        </a>
+      </div>
+      <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+        Seisi Potret adalah Haramain Content Creator yang menghadirkan layanan
+        dokumentasi perjalanan di Makkah dan Madinah secara profesional dan
+        tetap menjaga kekhusyukan perjalanan ibadah.
       </p>
-      <div class="flex items-center gap-2">
-        <a href="https://www.instagram.com/visualharamain?igsh=d2R1a2UweTQzcXpi&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-white hover:bg-[#4a88bc] transition-all" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
-        <a href="https://wa.me/6281122806660" target="_blank" rel="noopener noreferrer" class="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-amber transition-all" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-4 w-4" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg></a>
-        <a href="mailto:visualharamain@gmail.com" class="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-amber transition-all" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg></a></div>
+      <div class="flex items-center gap-2.5 pt-1">
+        <a
+          href="https://www.instagram.com/seisipotret.co?stkn=cHN1anB6ODY5ZTIw&amp;utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="h-9 w-9 rounded-full bg-slate-200/60 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-white hover:bg-[#4a88bc] dark:hover:bg-[#4a88bc] transition-all duration-300"
+          aria-label="Instagram"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/6285163096956"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="h-9 w-9 rounded-full bg-slate-200/60 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-white hover:bg-[#4a88bc] dark:hover:bg-[#4a88bc] transition-all duration-300"
+          aria-label="WhatsApp"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+          </svg>
+        </a>
+        <a
+          href="https://www.tiktok.com/@seisipotret"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="h-9 w-9 rounded-full bg-slate-200/60 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-white hover:bg-[#4a88bc] dark:hover:bg-[#4a88bc] transition-all duration-300"
+          aria-label="TikTok"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M19.321 5.562a5.124 5.124 0 0 1-3.026-3.027A5.07 5.07 0 0 1 16.017 2h-3.513v13.507a2.919 2.919 0 1 1-2.919-2.919c.305 0 .6.047.878.135v-3.57a6.48 6.48 0 0 0-.878-.061 6.477 6.477 0 1 0 6.477 6.477V8.706a8.579 8.579 0 0 0 5.013 1.609V6.802a5.09 5.09 0 0 1-1.754-.316z"></path>
+          </svg>
+        </a>
+        <a
+          href="mailto:seisipotret@gmail.com"
+          target="_blank"
+          class="h-9 w-9 rounded-full bg-slate-200/60 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-white hover:bg-[#4a88bc] dark:hover:bg-[#4a88bc] transition-all duration-300"
+          aria-label="Email"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <!-- Links: Layanan -->
-    <div>
-      <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-[11px]">Layanan</h4>
-      <ul class="space-y-2 font-light">
-        <li><a href="/layanan/pelataran-mekkah" class="hover:text-[#4a88bc] transition">Pelataran Mekkah</a></li>
-        <li><a href="/layanan/jabal-kudai" class="hover:text-[#4a88bc] transition">Jabal Kudai Package</a></li>
-        <li><a href="/layanan/jabal-khandamah" class="hover:text-[#4a88bc] transition">Jabal Khandamah</a></li>
-        <li><a href="/layanan/travel-package" class="hover:text-[#4a88bc] transition">Travel Package</a></li>
+    <div class="space-y-4">
+      <div class="h-6 flex items-center">
+        <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-widest text-xs leading-none">
+          Layanan
+        </h4>
+      </div>
+      <ul class="space-y-2.5 text-xs md:text-sm font-light">
+        <li>
+          <a
+            href="/layanan/pelataran-makkah"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Pelataran Makkah
+          </a>
+        </li>
+        <li>
+          <a
+            href="/layanan/pelataran-madinah"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Pelataran Madinah
+          </a>
+        </li>
+        <li>
+          <a
+            href="/layanan/alula"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Al-`Ula
+          </a>
+        </li>
+        <li>
+          <a
+            href="/layanan/jabal-kudai-khandamah"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Jabal Kudai & Khandamah
+          </a>
+        </li>
+        <li>
+          <a
+            href="/layanan/jabal-uhud"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Jabal Uhud
+          </a>
+        </li>
       </ul>
     </div>
 
     <!-- Links: Perusahaan -->
-    <div>
-      <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-[11px]">Perusahaan</h4>
-      <ul class="space-y-2 font-light">
-        <li><a href="/tentang" class="hover:text-[#4a88bc] transition">Tentang Kami</a></li>
-        <li><a href="/kontak" class="hover:text-[#4a88bc] transition">Kontak</a></li>
-        <li><a href="/#galeri" class="hover:text-[#4a88bc] transition">Portofolio</a></li>
+    <div class="space-y-4">
+      <div class="h-6 flex items-center">
+        <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-widest text-xs leading-none">
+          Perusahaan
+        </h4>
+      </div>
+      <ul class="space-y-2.5 text-xs md:text-sm font-light">
+        <li>
+          <a href="/tentang" class="hover:text-[#4a88bc] transition-colors">
+            Tentang Kami
+          </a>
+        </li>
+        <li>
+          <a href="/kontak" class="hover:text-[#4a88bc] transition-colors">
+            Kontak
+          </a>
+        </li>
+        <li>
+          <a href="/#galeri" class="hover:text-[#4a88bc] transition-colors">
+            Portofolio
+          </a>
+        </li>
       </ul>
     </div>
 
     <!-- Links: Bantuan -->
-    <div>
-      <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-[11px]">Bantuan</h4>
-      <ul class="space-y-2 font-light">
-        <li><a href="#faq" class="hover:text-[#4a88bc] transition">FAQ</a></li>
-        <li><a href="/kebijakan-privasi" class="hover:text-[#4a88bc] transition">Kebijakan Privasi</a></li>
-        <li><a href="/syarat-ketentuan" class="hover:text-[#4a88bc] transition">Syarat & Ketentuan</a></li>
+    <div class="space-y-4">
+      <div class="h-6 flex items-center">
+        <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-widest text-xs leading-none">
+          Bantuan
+        </h4>
+      </div>
+      <ul class="space-y-2.5 text-xs md:text-sm font-light">
+        <li>
+          <a href="/faq" class="hover:text-[#4a88bc] transition-colors">
+            FAQ
+          </a>
+        </li>
+        <li>
+          <a
+            href="/kebijakan-privasi"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Kebijakan Privasi
+          </a>
+        </li>
+        <li>
+          <a
+            href="/syarat-ketentuan"
+            class="hover:text-[#4a88bc] transition-colors"
+          >
+            Syarat & Ketentuan
+          </a>
+        </li>
       </ul>
     </div>
-
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 md:px-12 pt-6 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-400">
+  <!-- Bottom Copyright Row -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 pt-6 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400 dark:text-slate-500 font-light">
     <p>© 2026 SEISIPOTRET. All Rights Reserved.</p>
     <p>Indonesia — Saudi Arabia</p>
   </div>

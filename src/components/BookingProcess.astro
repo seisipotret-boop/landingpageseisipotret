@@ -3,120 +3,119 @@
 
 const steps = [
   {
-    step: "01",
-    title: "Cek Ketersediaan",
-    desc: "Sebelum memesan, pastikan slot waktu yang Anda inginkan tersedia.",
-    // Icon Calendar Check
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l2 2 4-4"></path></svg>`,
-    active: false,
+    step: "1",
+    title: "Cek Ketersediaan Jadwal",
+    desc: "Pastikan tanggal dan waktu yang Anda inginkan masih tersedia sebelum melakukan booking.",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 14l2 2 4-4"></path></svg>`,
   },
   {
-    step: "02",
-    title: "Booking & Koordinasi",
-    desc: "Maksimal H-3 sebelum acara (menyesuaikan). Komunikasi final dengan tim 1 hari sebelum acara.",
-    // Icon Phone/Whatsapp
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>`,
-    active: false, 
+    step: "2",
+    title: "Booking & Kordinasi",
+    desc: "Konfirmasi layanan, lokasi, waktu, serta kebutuhan dokumentasi bersama tim Seisi Potret.",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>`,
   },
   {
-    step: "03",
-    title: "Pengiriman Foto JPEG",
-    desc: "Semua hasil foto JPEG dikirimkan 1 hari setelah acara pemotretan selesai.",
-    // Icon Image/Camera
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`,
-    active: false,
+    step: "3",
+    title: "Pembayaran",
+    desc: "Lakukan pembayaran sesuai paket yang dipilih untuk mengamankan jadwal dokumentasi Anda.",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"></path></svg>`,
   },
   {
-    step: "04",
-    title: "Proses Pengeditan",
-    desc: "Memakan waktu 1–2 hari kerja untuk low season dan 3 hari kerja untuk high season.",
-    // Icon Magic Edit
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>`,
-    active: false,
+    step: "4",
+    title: "Proses Production",
+    desc: "Tim kami akan melakukan sesi foto dan video sesuai jadwal serta konsep yang telah disepakati.",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`,
   },
   {
-    step: "05",
-    title: "AirDrop Mentahan",
-    desc: "Penyerahan file mentahan foto & video langsung via AirDrop (kecuali perangkat kamera).",
-    // Icon Share/AirDrop
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>`,
-    active: false,
+    step: "5",
+    title: "Proses Editing",
+    desc: "Foto dan video pilihan akan melalui proses editing dan color grading sesuai standar Seisi Potret.",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>`,
   },
   {
-    step: "06",
-    title: "Penyimpanan Drive",
-    desc: "Seluruh foto tersimpan aman di Google Drive maksimal 7 hari setelah pengiriman JPEG.",
-    // Icon Cloud Drive
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>`,
-    active: false,
+    step: "6",
+    title: "Upload Google Drive",
+    desc: "Seluruh hasil akhir akan dikirim melalui Google Drive agar mudah diakses dan diunduh.",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>`,
   },
 ];
 ---
 
 <section class="py-20 bg-white dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 md:px-12">
-    
-    <!-- Badge & Header -->
-    <div class="text-center space-y-3 mb-16">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-8">
+    <!-- Header Section -->
+    <div class="text-center space-y-3 mb-16 md:mb-20">
       <div class="flex items-center justify-center gap-3">
-        <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#4a88bc]">PROSES</span>
+        <span class="h-px w-8 bg-[#4a88bc]"></span>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#4a88bc]">
+          ALUR KERJA
+        </span>
+        <span class="h-px w-8 bg-[#4a88bc]"></span>
       </div>
 
       <h2 class="text-3xl md:text-5xl font-serif text-slate-900 dark:text-white tracking-tight">
-        Langkah Mudah <span class="italic text-[#4a88bc]">Booking Dokumentasi</span>
+        Langkah Mudah{" "}
+        <span class="italic font-normal text-[#4a88bc]">
+          Booking Dokumentasi
+        </span>
       </h2>
-      
-      <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto font-light leading-relaxed">
-        Proses pemesanan dan alur kerja layanan dokumentasi kami yang transparan, mudah, dan profesional.
+
+      <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 max-w-lg mx-auto font-light leading-relaxed">
+        Proses pemesanan dan alur kerja layanan dokumentasi kami yang
+        transparan, mudah, dan profesional.
       </p>
     </div>
 
-    <!-- Process Steps Grid / Flow Layout -->
+    <!-- Process Container -->
     <div class="relative">
-      
-      <!-- Connecting Wave Line (Hanya muncul di Desktop) -->
-      <div class="hidden lg:block absolute top-14 left-[5%] right-[5%] h-0.5 pointer-events-none z-0">
-        <svg class="w-full h-12 stroke-slate-300 dark:stroke-slate-800" fill="none" preserveAspectRatio="none" viewBox="0 0 1000 40">
-          <path d="M 0,20 Q 83,0 166,20 T 332,20 T 498,20 T 664,20 T 830,20 T 1000,20" stroke-dasharray="6 6" stroke-width="2"></path>
-        </svg>
-      </div>
+      <!-- SVG Wave Path Melengkung Sambung 6 Kolom (Hanya Tampil di Desktop LG ke Atas) -->
+      <svg
+        class="hidden lg:block absolute top-0 left-[8.333%] right-[8.333%] w-[83.334%] h-28 pointer-events-none z-0 overflow-visible"
+        viewBox="0 0 1000 112"
+        fill="none"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M 0,56 Q 100,24 200,56 T 400,56 T 600,56 T 800,56 T 1000,56"
+          stroke="#4a88bc"
+          stroke-opacity="0.45"
+          stroke-width="2"
+          stroke-dasharray="6 6"
+          stroke-linecap="round"
+        />
+      </svg>
 
-      <!-- Process Cards Grid (6 Kolom di Desktop, Vertikal di Mobile) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 relative z-10">
-        {steps.map((item, idx) => (
+      <!-- 6 Columns Horizontal Grid Lurus di Desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 md:gap-6 relative z-10">
+        {steps.map((item) => (
           <div class="flex flex-col items-center text-center group">
-            
             <!-- Circle Icon Wrapper -->
-            <div 
-              class={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 shadow-md relative group-hover:scale-110 ${
-                item.active 
-                  ? 'bg-[#153e35] text-white ring-4 ring-[#153e35]/20' 
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 group-hover:bg-[#4a88bc] group-hover:text-white'
-              }`}
-            >
-              <div class="w-6 h-6" set:html={item.icon}></div>
-              
-              <!-- Number Indicator Badge -->
-              <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#4a88bc] text-white text-[10px] font-extrabold flex items-center justify-center shadow-sm">
-                {idx + 1}
+            <div class="relative mb-5">
+              <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 flex items-center justify-center text-[#4a88bc] dark:text-[#4a88bc] shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md group-hover:border-[#4a88bc]/50">
+                <div
+                  class="w-7 h-7 flex items-center justify-center"
+                  set:html={item.icon}
+                />
+              </div>
+
+              <!-- Number Badge -->
+              <span class="absolute top-0 right-0 w-7 h-7 rounded-full bg-[#4a88bc] text-white text-xs font-bold flex items-center justify-center shadow-md border-2 border-white dark:border-slate-950">
+                {item.step}
               </span>
             </div>
 
             <!-- Title & Description -->
-            <div class="mt-5 space-y-2">
-              <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-[#4a88bc] transition-colors">
+            <div class="space-y-2">
+              <h3 class="text-sm md:text-base font-bold text-slate-900 dark:text-white group-hover:text-[#4a88bc] transition-colors leading-snug">
                 {item.title}
               </h3>
               <p class="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                 {item.desc}
               </p>
             </div>
-
           </div>
         ))}
       </div>
-
     </div>
-
   </div>
 </section>
