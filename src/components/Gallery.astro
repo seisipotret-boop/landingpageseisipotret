@@ -35,34 +35,30 @@ const portfolioItems = [
   {
     id: 4,
     title: "Dokumentasi Keluarga Masjid Nabawi",
-    location: "madinah",
+    location: "makkah",
     type: "family",
     media: "foto",
-    tag: "MADINAH · FAMILY",
+    tag: "MAKKAH · FAMILY",
     image:
-      "https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?q=80&w=1200&auto=format&fit=crop",
+      "/media/galeri/makkah-family.webp?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: 5,
     title: "Video Cinematic Umroh VVIP",
     location: "makkah",
-    type: "cinematic", // Filter video: cinematic, testimonial
+    type: "testimonial", // Filter video: cinematic, testimonial
     media: "video",
-    tag: "MAKKAH · CINEMATIC",
-    videoUrl: "/media/07044.mp4",
-    image:
-      "https://images.pexels.com/photos/38335976/pexels-photo-38335976.jpeg?q=80&w=800&auto=format&fit=crop",
+    tag: "MAKKAH · TESTIMONIAL",
+    videoUrl: "/media/galeri/makkah-testimonial.mp4",
   },
   {
     id: 6,
     title: "Kesan Jamaah Umrah Family",
     location: "madinah",
-    type: "testimonial",
+    type: "cinematic",
     media: "video",
-    tag: "MADINAH · TESTIMONIAL",
-    videoUrl: "/media/herovideo.mp4",
-    image:
-      "https://images.pexels.com/photos/15501955/pexels-photo-15501955.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=800&w=600",
+    tag: "MADINAH · CINEMATIC",
+    videoUrl: "/media//herovideo.mp4",
   },
 ];
 ---
@@ -135,13 +131,19 @@ const portfolioItems = [
           data-filter-loc="al-ula"
           class="filter-loc-btn px-4 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-[#4a88bc] transition-all"
         >
-          Al-Ula
+          Al-`Ula
         </button>
         <button
           data-filter-loc="jabal"
           class="filter-loc-btn px-4 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-[#4a88bc] transition-all"
         >
           Jabal Kudai & Khandamah
+        </button>
+        <button
+          data-filter-loc="ubud"
+          class="filter-loc-btn px-4 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-[#4a88bc] transition-all"
+        >
+          Jabal Ubud
         </button>
       </div>
 
