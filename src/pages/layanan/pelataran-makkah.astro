@@ -15,8 +15,8 @@ const galleryImages = [
     desc: "Dokumentasi eksklusif di area Mataf",
   },
   {
-    url: "https://images.pexels.com/photos/15369686/pexels-photo-15369686.jpeg?q=80&w=800&auto=format&fit=crop",
-    title: "Eskalator Viral",
+    url: "https://raw.githubusercontent.com/seisipotret-boop/seisipotret-galeri/refs/heads/main/Twin_Tower_Pelataran_Makkah.png",
+    title: "Twin Tower",
     desc: "Momen cinematic dengan latar arsitektur megah",
   },
   {
@@ -31,79 +31,191 @@ const galleryImages = [
   },
 ];
 
-const packages = [
+// DATA STRUKTUR LAYANAN MEKKAH (3 TIER LAYANAN)
+const serviceTypes = [
   {
-    id: "single-package",
-    name: "Foto & Video (Single)",
-    duration: "60 MENIT",
-    subtitle: "Max 1 Person",
-    priceSAR: 300,
-    details: [
-      "Durasi sesi 60 menit",
-      "Pilih 2 lokasi foto",
-      "1 Edited Highlight Video durasi 45–60 detik",
-      "Edited Photos",
-      "Unlimited pengambilan foto & video selama sesi",
+    id: "signature-experience",
+    name: "Signature Experience of Makkah",
+    subtitle:
+      "Pengalaman dokumentasi terlengkap dan paling eksklusif di Makkah.",
+    maxLocations: 0, // Tanpa pemilihan lokasi spesifik
+    locations: [],
+    sessions: [
+      {
+        id: "sig-single",
+        name: "SINGLE Session",
+        paxSubtitle: "Max. 1 Person",
+        priceSAR: 749,
+        priceIDRFormatted: "Rp 3.595.200",
+        details: [
+          "2 Documentation Experiences (Jejak Makkah + Jabal Journey)",
+          "Up to 4 Spots / Locations Total",
+          "Durasi Dokumentasi hingga 150 menit",
+          "Selected & Professionally Edited Photos",
+          "2 Highlight Videos 45–60 Seconds",
+          "All Usable Original Photos & Videos",
+          "Pose & Angle Direction",
+          "Session Timing & Location Planning",
+        ],
+      },
+      {
+        id: "sig-couple",
+        name: "COUPLE Session",
+        paxSubtitle: "Max. 2 Person",
+        priceSAR: 899,
+        priceIDRFormatted: "Rp 4.315.200",
+        details: [
+          "2 Documentation Experiences (Jejak Makkah + Jabal Journey)",
+          "Up to 4 Spots / Locations Total",
+          "Durasi Dokumentasi hingga 180 menit",
+          "Selected & Professionally Edited Photos",
+          "2 Highlight Videos 45–60 Seconds",
+          "All Usable Original Photos & Videos",
+          "Pose & Angle Direction",
+          "Session Timing & Location Planning",
+        ],
+      },
+      {
+        id: "sig-family",
+        name: "FAMILY Session",
+        paxSubtitle: "Max. 5 Person",
+        priceSAR: 1339,
+        priceIDRFormatted: "Rp 6.427.200",
+        details: [
+          "2 Documentation Experiences (Jejak Makkah + Jabal Journey)",
+          "Up to 4 Spots / Locations Total",
+          "Durasi Dokumentasi hingga 210 menit",
+          "Family Group Portraits",
+          "Couple / Parent & Individual Portraits",
+          "Selected & Professionally Edited Photos",
+          "2 Family Highlight Videos 45–60 Seconds",
+          "All Usable Original Photos & Videos",
+          "Pose & Angle Direction",
+          "Session Timing & Location Planning",
+        ],
+      },
     ],
-    excludes: [
-      "Overtime 30 Menit (+100 SAR)",
-      "Food & Beverages (Pembelian makanan dan minuman di Cafe Moment tidak termasuk dalam harga paket)",
+    notIncluded: [
+      "Food & Beverages",
+      "Personal Expenses",
+      "Entrance / Location Fee (if applicable)",
+    ],
+    addOns: [
+      "Overtime — +100 SAR / 30 Minutes",
+      "Transportation — By Request",
+      "Special Request / Additional Props",
+      "Group Above 5 Persons — By Request",
     ],
   },
   {
-    id: "couple-package",
-    name: "Foto & Video (Couple)",
-    duration: "60 MENIT",
-    subtitle: "Max 2 Person",
-    priceSAR: 349,
-    details: [
-      "Durasi sesi 60 menit",
-      "Pilih 2 lokasi foto",
-      "1 Edited Highlight Video durasi 45–60 detik",
-      "Edited Photos",
-      "Unlimited pengambilan foto & video selama sesi",
+    id: "jejak-makkah",
+    name: "Jejak Makkah",
+    subtitle: "Sesi dokumentasi esensial di spot-spot favorit Makkah.",
+    maxLocations: 2,
+    locations: ["Cafe Moment", "Jabal Omar", "Twin Tower"],
+    sessions: [
+      {
+        id: "jejak-single",
+        name: "SINGLE Session",
+        paxSubtitle: "Maks. 1 Orang",
+        priceSAR: 300,
+        priceIDRFormatted: "Rp 1.440.000",
+        details: [
+          "60 Minutes Session",
+          "Up To 2 Locations",
+          "Personal Photo & Video Documentation",
+          "Selected & Professionally Edited Photos",
+          "1 Highlight Video (45 - 60 Second)",
+          "All Original Photos & Videos",
+          "Pose & Angle Direction",
+        ],
+      },
+      {
+        id: "jejak-couple",
+        name: "COUPLE Session",
+        paxSubtitle: "Maks. 2 Orang",
+        priceSAR: 349,
+        priceIDRFormatted: "Rp 1.675.200",
+        details: [
+          "60 Minutes Session",
+          "Up To 2 Locations",
+          "Couple Photos & Video Documentation",
+          "Selected & Professionally Edited Photos",
+          "1 Highlight Video (45 - 60 Second)",
+          "All Original Photos & Videos",
+          "Couple Pose & Interaction Directions",
+        ],
+      },
+      {
+        id: "jejak-family",
+        name: "FAMILY Session",
+        paxSubtitle: "Maks. 6 Orang",
+        priceSAR: 650,
+        priceIDRFormatted: "Rp 3.120.000",
+        details: [
+          "90 Minutes Session",
+          "Up To 2 Locations",
+          "Family Group Portraits",
+          "Individual & Couple Portraits",
+          "Selected & Professionally Edited Photos",
+          "1 Family Highlight Video (45 - 60 Second)",
+          "All Original Photos & Videos",
+          "Family Pose & Composition Direction",
+        ],
+      },
     ],
-    excludes: [
-      "Overtime 30 Menit (+100 SAR)",
-      "Food & Beverages (Pembelian makanan dan minuman di Cafe Moment tidak termasuk dalam harga paket)",
+    notIncluded: [
+      "Food and Beverages",
+      "Personal Expenses",
+      "Entrance / Location Fee",
+    ],
+    addOns: [
+      "Overtime (+100 SAR / 30 Minutes)",
+      "Transportation — By Request",
+      "Additional Props — By Request",
     ],
   },
   {
-    id: "family-package",
-    name: "Foto & Video (Family)",
-    duration: "90 MENIT",
-    subtitle: "Max 6 Person",
-    priceSAR: 650,
-    details: [
-      "Durasi sesi 90 menit",
-      "Pilih 2 lokasi foto",
-      "1 Edited Highlight Video durasi 45–60 detik",
-      "Edited Photos",
-      "Unlimited pengambilan foto & video selama sesi",
+    id: "makkah-moment",
+    name: "Makkah Moment",
+    subtitle: "Sesi foto personal singkat & fleksibel di 1 lokasi pilihan.",
+    maxLocations: 1,
+    locations: [
+      "Courtyard",
+      "Mathaf Ka'bah",
+      "Jabal Omar",
+      "Jabal Kudai",
+      "Jabal Khandamah",
     ],
-    excludes: [
-      "Overtime 30 Menit (+100 SAR)",
-      "Food & Beverages (Pembelian makanan dan minuman di Cafe Moment tidak termasuk dalam harga paket)",
+    sessions: [
+      {
+        id: "moment-single",
+        name: "SINGLE SESSION",
+        paxSubtitle: "Maks. 1 Orang",
+        priceSAR: 159,
+        priceIDRFormatted: "Rp 763.200",
+        details: [
+          "Photo Session Only",
+          "30 - 45 Minutes Photo Session",
+          "Pilih 1 Spot Dokumentasi",
+          "Selected & Professionally Edited Photos",
+          "Seluruh Original Photos selama sesi",
+          "Pose & Angle Direction selama sesi",
+          "Rekomendasi waktu terbaik untuk sesi",
+        ],
+      },
+    ],
+    notIncluded: ["Food & Beverages", "Personal Expenses", "Transportation"],
+    addOns: [
+      "Overtime (+100 SAR / 30 Minutes)",
+      "Special Request / Props — By Request",
     ],
   },
-];
-
-const availableLocations = [
-  "Mataf Ka'bah",
-  "Cafe Moment (Di Luar Area)",
-  "Jabal Omar",
-  "Twin Tower",
-];
-
-const notes = [
-  "Overtime (+100 SAR / 30 menit)",
-  "Food & Beverages (Pembelian makanan dan minuman di Cafe Moment tidak termasuk dalam harga paket.)",
 ];
 ---
 
 <Layout title={`${pageTitle} - Seisipotret Documentation`}>
   <Navbar />
-
   <main class="bg-white dark:bg-slate-950 transition-colors duration-300">
     <!-- 1. FULLSCREEN HERO SECTION -->
     <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
@@ -115,22 +227,18 @@ const notes = [
           class="w-full h-full object-cover object-center filter blur-[1px]"
         />
       </div>
-
       <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
         <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-[#4a88bc] block">
           SEISI POTRET - Layanan Dokumentasi Profesional di Tanah Suci
         </span>
-
         <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white uppercase tracking-tight leading-tight sm:leading-tight mb-4 md:mb-6">
           Pelataran Mekkah
         </h1>
-
         <p class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-6 md:mb-8">
           Setiap detik di Tanah Suci adalah kenangan abadi. Tim fotografer
           profesional Seisipotret siap mendokumentasikan perjalanan Anda dengan
           sentuhan artistik dan penuh makna di berbagai destinasi ikonik.
         </p>
-
         <div class="pt-2">
           <a
             href="#main-booking-section"
@@ -152,7 +260,6 @@ const notes = [
             </svg>
           </a>
         </div>
-
         <div class="pt-8 flex flex-col items-center justify-center gap-2 opacity-70 animate-bounce">
           <span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">
             Scroll Ke Bawah
@@ -184,7 +291,6 @@ const notes = [
               <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight uppercase">
                 PILIH PAKET & LOKASI
               </h2>
-
               <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mt-3 mb-3">
                 <a
                   href="/#layanan"
@@ -197,11 +303,9 @@ const notes = [
                   {pageTitle}
                 </span>
               </div>
-
               <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base font-light leading-relaxed">
-                Di jantung Kota Suci, Seisipotret mengubah momen berharga Anda
-                menjadi kisah visual abadi. Buka paket untuk melihat detail dan
-                memilih 2 lokasi sesi foto.
+                Pilih kategori layanan di bawah ini, tentukan sesi yang sesuai
+                dengan jumlah peserta Anda, serta pilih lokasi yang diinginkan.
               </p>
             </div>
 
@@ -210,7 +314,6 @@ const notes = [
               <span class="text-[10px] font-bold text-[#4a88bc] uppercase tracking-widest block">
                 PREVIEW DESTINASI PELATARAN MEKKAH
               </span>
-
               <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-4/3 sm:aspect-16/10 bg-slate-900 group">
                 <div
                   id="main-slider"
@@ -231,12 +334,10 @@ const notes = [
                     </div>
                   ))}
                 </div>
-
                 <div class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-slate-950/50 backdrop-blur-md text-[11px] font-medium text-white tracking-wider">
                   <span id="slider-current-index">1</span> /{" "}
                   {galleryImages.length}
                 </div>
-
                 <button
                   id="prev-btn"
                   aria-label="Previous image"
@@ -256,7 +357,6 @@ const notes = [
                     ></path>
                   </svg>
                 </button>
-
                 <button
                   id="next-btn"
                   aria-label="Next image"
@@ -276,7 +376,6 @@ const notes = [
                     ></path>
                   </svg>
                 </button>
-
                 <div
                   id="slider-dots"
                   class="absolute bottom-4 left-0 right-0 z-10 flex justify-center items-center gap-1.5"
@@ -292,56 +391,44 @@ const notes = [
               </div>
             </div>
 
-            <!-- Pemilihan Paket (Accordion List) -->
-            <div class="space-y-4 pt-4" id="packages-list">
+            <!-- TIER 1 & TIER 2 ACCORDION PEMILIHAN LAYANAN & SESI -->
+            <div class="space-y-6 pt-4" id="services-container">
               <h3 class="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                Pilihan Paket Dokumentasi
+                Pilihan Tipe Layanan Makkah
               </h3>
 
-              {packages.map((pkg) => (
-                <div
-                  class="package-card bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-300"
-                  data-package-id={pkg.id}
-                  data-package-name={pkg.name}
-                  data-package-price={pkg.priceSAR}
-                  data-package-subtitle={pkg.subtitle}
-                  data-package-duration={pkg.duration}
-                >
-                  <button
-                    type="button"
-                    class="card-toggle w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+              <div class="space-y-5">
+                {serviceTypes.map((st) => (
+                  <div
+                    class="service-type-card bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-300"
+                    data-service-id={st.id}
+                    data-service-name={st.name}
+                    data-max-locations={st.maxLocations}
                   >
-                    <div class="flex items-center gap-4">
-                      <div class="radio-indicator w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 transition-colors">
-                        <div class="radio-dot w-2.5 h-2.5 rounded-full bg-[#4a88bc] opacity-0 transition-opacity"></div>
-                      </div>
-                      <div>
-                        <div class="flex items-center gap-2">
-                          <h4 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
-                            {pkg.name}
-                          </h4>
-                          <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 tracking-wider">
-                            {pkg.duration}
-                          </span>
+                    <!-- Header Type Toggle -->
+                    <button
+                      type="button"
+                      class="service-toggle w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                    >
+                      <div class="flex items-center gap-4">
+                        <div class="service-radio w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 transition-colors">
+                          <div class="service-dot w-2.5 h-2.5 rounded-full bg-[#4a88bc] opacity-0 transition-opacity"></div>
                         </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-0.5">
-                          {pkg.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="flex items-center gap-3 shrink-0">
-                      <div class="text-right">
-                        <span class="text-lg md:text-xl font-extrabold text-slate-900 dark:text-white block leading-none">
-                          {pkg.priceSAR} SAR
-                        </span>
-                        <span class="text-[10px] text-slate-400 font-light block mt-1">
-                          ± Rp{" "}
-                          {(pkg.priceSAR * kursSAR).toLocaleString("id-ID")}
-                        </span>
+                        <div>
+                          <div class="flex flex-wrap items-center gap-2">
+                            <h4 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
+                              {st.name}
+                            </h4>
+                            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] tracking-wider">
+                            </span>
+                          </div>
+                          <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-1">
+                            {st.subtitle}
+                          </p>
+                        </div>
                       </div>
                       <svg
-                        class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300"
+                        class="service-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -353,19 +440,126 @@ const notes = [
                           d="M19 9l-7 7-7-7"
                         ></path>
                       </svg>
-                    </div>
-                  </button>
+                    </button>
 
-                  <div class="card-details hidden px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/50 space-y-6">
-                    <div>
-                      <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc] mb-2">
-                        INCLUDE
-                      </h5>
-                      <ul class="space-y-2">
-                        {pkg.details.map((detail) => (
-                          <li class="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                    <!-- Body Content Type (Accordion) -->
+                    <div class="service-body hidden px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/50 space-y-6">
+                      <!-- TIER 2: Sub-Sesi Cards -->
+                      <div class="space-y-3">
+                        <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc]">
+                          PILIH SESI / KAPASITAS
+                        </h5>
+
+                        <div class="grid grid-cols-1 gap-3">
+                          {st.sessions.map((sess) => (
+                            <div
+                              class="session-card rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 overflow-hidden transition-all"
+                              data-session-id={sess.id}
+                              data-session-name={sess.name}
+                              data-session-pax={sess.paxSubtitle}
+                              data-session-price-sar={sess.priceSAR}
+                              data-session-price-idr={sess.priceIDRFormatted}
+                            >
+                              <button
+                                type="button"
+                                class="session-toggle w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer focus:outline-none"
+                              >
+                                <div class="flex items-center gap-3">
+                                  <div class="session-radio w-5 h-5 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 transition-colors">
+                                    <div class="session-dot w-2 h-2 rounded-full bg-[#4a88bc] opacity-0 transition-opacity"></div>
+                                  </div>
+                                  <div>
+                                    <h6 class="text-sm font-bold text-slate-900 dark:text-white">
+                                      {sess.name}
+                                    </h6>
+                                    <span class="text-[10px] text-slate-500 dark:text-slate-400 block">
+                                      {sess.paxSubtitle}
+                                    </span>
+                                  </div>
+                                </div>
+
+                                <div class="text-right shrink-0">
+                                  <span class="text-sm font-extrabold text-slate-900 dark:text-white block leading-none">
+                                    {sess.priceSAR} SAR
+                                  </span>
+                                  <span class="text-[10px] text-slate-400 block font-light mt-0.5">
+                                    {sess.priceIDRFormatted}
+                                  </span>
+                                </div>
+                              </button>
+
+                              <!-- Session Details Accordion Inner -->
+                              <div class="session-details hidden px-4 pb-4 pt-1 border-t border-slate-100 dark:border-slate-800 space-y-3">
+                                <ul class="space-y-1.5 pt-1">
+                                  {sess.details.map((dt) => (
+                                    <li class="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                                      <svg
+                                        class="w-3.5 h-3.5 text-[#4a88bc] shrink-0 mt-0.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2.5"
+                                          d="M5 13l4 4L19 7"
+                                        ></path>
+                                      </svg>
+                                      <span>{dt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <!-- Pemilihan Lokasi (Bila Memiliki Lokasi) -->
+                      {st.maxLocations > 0 && (
+                        <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800 space-y-3">
+                          <div class="flex items-center justify-between">
+                            <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc]">
+                              PILIH LOKASI FOTO (MAKS {st.maxLocations})
+                            </h5>
+                            <span class="location-counter-badge text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-200/70 dark:bg-slate-800 text-[#4a88bc]">
+                              0/{st.maxLocations} Dipilih
+                            </span>
+                          </div>
+
+                          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {st.locations.map((loc) => (
+                              <button
+                                type="button"
+                                class="location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 hover:border-[#4a88bc] transition-all text-left cursor-pointer group"
+                                data-location={loc}
+                              >
+                                <span class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-[#4a88bc]">
+                                  {loc}
+                                </span>
+                                <div class="check-box w-4 h-4 rounded-md border border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 bg-slate-50 dark:bg-slate-900 transition-colors">
+                                  <svg
+                                    class="check-icon w-3 h-3 text-white hidden"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="3"
+                                      d="M5 13l4 4L19 7"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+
+                          <p class="location-warning text-[10px] text-amber-600 dark:text-amber-400 hidden font-medium flex items-center gap-1 pt-0.5">
                             <svg
-                              class="w-4 h-4 text-[#4a88bc] shrink-0 mt-0.5"
+                              class="w-3.5 h-3.5 shrink-0"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -374,126 +568,59 @@ const notes = [
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M5 13l4 4L19 7"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                               ></path>
                             </svg>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {pkg.excludes && (
-                      <div>
-                        <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc] mb-2">
-                          EXCLUDE
-                        </h5>
-                        <ul class="space-y-2">
-                          {pkg.excludes.map((ex) => (
-                            <li class="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
-                              <span class="text-[#4a88bc] font-bold shrink-0">
-                                x
-                              </span>
-                              <span>{ex}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    <!-- SELEKSI LOKASI MENYATU DI DALAM DETAIL PAKET -->
-                    <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800 space-y-3">
-                      <div class="flex items-center justify-between">
-                        <h5 class="text-xs font-bold uppercase tracking-wider text-[#4a88bc]">
-                          PILIH 2 LOKASI FOTO
-                        </h5>
-                        <span class="location-badge text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-200/70 dark:bg-slate-800 text-[#4a88bc]">
-                          0/2 Dipilih
-                        </span>
-                      </div>
-
-                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {availableLocations.map((loc) => (
-                          <button
-                            type="button"
-                            class="location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 hover:border-[#4a88bc] transition-all text-left cursor-pointer group"
-                            data-location={loc}
-                          >
-                            <span class="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-[#4a88bc]">
-                              {loc}
+                            <span>
+                              Batas {st.maxLocations} lokasi tercapai. Unclick
+                              lokasi sebelumnya untuk mengganti.
                             </span>
-                            <div class="check-box w-4 h-4 rounded-md border border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 bg-slate-50 dark:bg-slate-900 transition-colors">
-                              <svg
-                                class="check-icon w-3 h-3 text-white hidden"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="3"
-                                  d="M5 13l4 4L19 7"
-                                ></path>
-                              </svg>
-                            </div>
-                          </button>
-                        ))}
-                      </div>
+                          </p>
+                        </div>
+                      )}
 
-                      <p class="location-warning text-[10px] text-amber-600 dark:text-amber-400 hidden font-medium flex items-center gap-1 pt-0.5">
-                        <svg
-                          class="w-3.5 h-3.5 shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                          ></path>
-                        </svg>
-                        <span>
-                          Batas 2 lokasi tercapai. Unclick lokasi sebelumnya
-                          untuk mengganti.
-                        </span>
-                      </p>
+                      <!-- Detail Excludes & Add-Ons Per Service Type -->
+                      <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {st.notIncluded && st.notIncluded.length > 0 && (
+                          <div class="space-y-2">
+                            <h5 class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                              NOT INCLUDED
+                            </h5>
+                            <ul class="space-y-1">
+                              {st.notIncluded.map((exc) => (
+                                <li class="flex items-start gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                                  <span class="text-[#4a88bc] font-bold">
+                                    •
+                                  </span>
+                                  <span>{exc}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {st.addOns && st.addOns.length > 0 && (
+                          <div class="space-y-2">
+                            <h5 class="text-[11px] font-bold uppercase tracking-wider text-[#4a88bc]">
+                              ADD-ONS & OPTIONS
+                            </h5>
+                            <ul class="space-y-1">
+                              {st.addOns.map((add) => (
+                                <li class="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300">
+                                  <span class="text-[#4a88bc] font-bold">
+                                    +
+                                  </span>
+                                  <span>{add}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <!-- Notes Section -->
-            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
-              <div class="flex items-center gap-2 text-[#4a88bc]">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0"
-                  ></path>
-                </svg>
-                <h3 class="text-sm font-bold uppercase tracking-wider">
-                  Catatan & Ketentuan Paket
-                </h3>
-              </div>
-              <ul class="space-y-2 pl-2">
-                {notes.map((note) => (
-                  <li class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
-                    <span class="text-[#4a88bc] font-bold">•</span>
-                    <span>{note}</span>
-                  </li>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 
@@ -505,7 +632,8 @@ const notes = [
                   Booking Details
                 </h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-1">
-                  Pilih paket dan 2 lokasi, lalu lengkapi data pemesanan.
+                  Pilih tipe layanan, sesi, dan lokasi (jika tersedia), lalu
+                  lengkapi form pemesanan.
                 </p>
               </div>
 
@@ -525,7 +653,7 @@ const notes = [
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                     ></path>
                   </svg>
-                  <span class="text-slate-500 font-medium">Layanan:</span>
+                  <span class="text-slate-500 font-medium">Kategori:</span>
                   <span class="font-bold text-slate-900 dark:text-white">
                     {pageTitle}
                   </span>
@@ -533,27 +661,28 @@ const notes = [
 
                 <div>
                   <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
-                    PAKET DIPILIH:
+                    TIPE LAYANAN & SESI:
                   </span>
                   <div
-                    id="selected-package-display"
+                    id="selected-service-display"
                     class="text-xs text-slate-400 italic"
                   >
-                    Belum memilih paket
+                    Belum memilih layanan
                   </div>
                 </div>
 
                 <div>
                   <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
-                    LOKASI DIPILIH (MAKS 2):
+                    LOKASI DIPILIH:
                   </span>
                   <div
                     id="selected-locations-display"
                     class="text-xs text-slate-400 italic"
                   >
-                    Belum ada lokasi dipilih
+                    Tanpa pilihan lokasi
                   </div>
                 </div>
+
                 <div class="pt-2 border-t border-slate-200 dark:border-slate-700/60 flex justify-between items-baseline">
                   <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                     ESTIMASI TOTAL:
@@ -716,16 +845,13 @@ const notes = [
   let slideTimer: ReturnType<typeof setInterval> | null = null;
 
   function initPageScript() {
-
+    // --- 1. GALLERY SLIDER LOGIC ---
     const slider = document.getElementById("main-slider");
     const sliderItems = document.querySelectorAll(".slider-item");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
     const dots = document.querySelectorAll(".slider-dot");
     const currentIndexDisplay = document.getElementById("slider-current-index");
-
-    const totalPriceSarEl = document.getElementById("total-price-sar");
-    const totalPriceIdrEl = document.getElementById("total-price-idr");
 
     let currentIndex = 0;
     const totalItems = sliderItems.length;
@@ -739,17 +865,13 @@ const notes = [
 
     const updateSlider = (index: number) => {
       if (totalItems === 0) return;
-
       currentIndex = (index + totalItems) % totalItems;
-
       if (slider) {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       }
-
       if (currentIndexDisplay) {
         currentIndexDisplay.textContent = (currentIndex + 1).toString();
       }
-
       dots.forEach((dot, i) => {
         if (i === currentIndex) {
           dot.className =
@@ -763,7 +885,6 @@ const notes = [
 
     const startAutoSlide = () => {
       stopAutoSlide();
-
       if (totalItems > 0) {
         slideTimer = setInterval(() => {
           updateSlider(currentIndex + 1);
@@ -789,7 +910,6 @@ const notes = [
       (dot as HTMLElement).onclick = (e) => {
         const target = e.currentTarget as HTMLElement;
         const idx = parseInt(target.dataset.index || "0", 10);
-
         updateSlider(idx);
         startAutoSlide();
       };
@@ -797,6 +917,7 @@ const notes = [
 
     startAutoSlide();
 
+    // Lightbox
     const modal = document.getElementById("lightbox-modal");
     const modalImg = document.getElementById(
       "lightbox-img",
@@ -807,17 +928,13 @@ const notes = [
     sliderItems.forEach((item) => {
       (item as HTMLElement).onclick = () => {
         stopAutoSlide();
-
         const element = item as HTMLElement;
         const url = element.dataset.imgUrl || "";
         const title = element.dataset.imgTitle || "";
-
         if (modalImg && modalTitle && modal) {
           modalImg.src = url;
           modalTitle.textContent = title;
-
           modal.classList.remove("hidden");
-
           setTimeout(() => {
             modal.classList.remove("opacity-0");
           }, 10);
@@ -827,314 +944,391 @@ const notes = [
 
     const closeModal = () => {
       if (!modal) return;
-
       modal.classList.add("opacity-0");
-
       setTimeout(() => {
         modal.classList.add("hidden");
         startAutoSlide();
       }, 300);
     };
 
-    if (modalClose) {
-      modalClose.onclick = closeModal;
-    }
-
+    if (modalClose) modalClose.onclick = closeModal;
     if (modal) {
       modal.onclick = (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
+        if (e.target === modal) closeModal();
       };
     }
 
-    let selectedPackage: {
+    // --- 2. MULTI-TIER SERVICE SELECTION & BOOKING LOGIC ---
+    let selectedServiceType: {
+      id: string;
       name: string;
-      price: string;
-      subtitle: string;
-      duration: string;
+      maxLocations: number;
     } | null = null;
-
+    let selectedSession: {
+      id: string;
+      name: string;
+      pax: string;
+      priceSAR: number;
+      priceIDRFormatted: string;
+    } | null = null;
     let selectedLocations: string[] = [];
 
-    const cards = document.querySelectorAll(".package-card");
-
-    const displayBox = document.getElementById("selected-package-display");
-
+    const serviceCards = document.querySelectorAll(".service-type-card");
+    const displayServiceBox = document.getElementById(
+      "selected-service-display",
+    );
     const displayLocationsBox = document.getElementById(
       "selected-locations-display",
     );
-
+    const totalPriceSarEl = document.getElementById("total-price-sar");
+    const totalPriceIdrEl = document.getElementById("total-price-idr");
     const submitBtn = document.getElementById(
       "submit-btn",
     ) as HTMLButtonElement;
-
     const form = document.getElementById("booking-form") as HTMLFormElement;
 
+    const kursSAR = 4800;
 
     const updatePriceEstimate = () => {
       if (!totalPriceSarEl || !totalPriceIdrEl) return;
 
-      // Jika belum memilih paket
-      if (!selectedPackage) {
+      if (!selectedSession) {
         totalPriceSarEl.textContent = "0 SAR";
         totalPriceIdrEl.textContent = "± Rp 0";
         return;
       }
 
-      const priceSAR = Number(selectedPackage.price) || 0;
-
-      // Kurs SAR ke Rupiah
-      const kursSAR = 4800;
-
+      const priceSAR = selectedSession.priceSAR;
       const priceIDR = priceSAR * kursSAR;
 
       totalPriceSarEl.textContent = `${priceSAR.toLocaleString("en-US")} SAR`;
-
       totalPriceIdrEl.textContent = `± Rp ${priceIDR.toLocaleString("id-ID")}`;
     };
 
-
     const checkFormValidity = () => {
-      if (submitBtn) {
-        if (selectedPackage && selectedLocations.length > 0) {
-          submitBtn.disabled = false;
+      if (!submitBtn) return;
 
-          submitBtn.className =
-            "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md";
-        } else {
-          submitBtn.disabled = true;
+      // Validasi: Harus pilih Tipe Service + Sesi.
+      // Jika maxLocations > 0, harus pilih minimal 1 lokasi. Jika maxLocations === 0, lokasi tidak wajib.
+      const isServiceValid = !!selectedServiceType && !!selectedSession;
+      const isLocationValid =
+        selectedServiceType?.maxLocations === 0 || selectedLocations.length > 0;
 
-          submitBtn.className =
-            "w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm";
-        }
+      if (isServiceValid && isLocationValid) {
+        submitBtn.disabled = false;
+        submitBtn.className =
+          "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md";
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.className =
+          "w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm";
       }
     };
 
-    const updateLocationsDisplay = () => {
-      if (displayLocationsBox) {
-        if (selectedLocations.length === 0) {
-          displayLocationsBox.className = "text-xs text-slate-400 italic";
+    const updateUIState = () => {
+      // 1. Update Display Service Box
+      if (displayServiceBox) {
+        if (selectedServiceType && selectedSession) {
+          displayServiceBox.className = "font-bold text-[#4a88bc]";
+          displayServiceBox.innerHTML = `${selectedServiceType.name}<br/><span class="text-slate-600 dark:text-slate-300 font-normal">• ${selectedSession.name} (${selectedSession.pax})</span>`;
+        } else {
+          displayServiceBox.className = "text-xs text-slate-400 italic";
+          displayServiceBox.textContent = "Belum memilih layanan";
+        }
+      }
 
-          displayLocationsBox.textContent = "Belum ada lokasi dipilih";
+      // 2. Update Display Locations Box
+      if (displayLocationsBox) {
+        if (!selectedServiceType || selectedServiceType.maxLocations === 0) {
+          displayLocationsBox.className = "text-xs text-slate-400 italic";
+          displayLocationsBox.textContent =
+            "Tanpa pilihan lokasi (All-inclusive)";
+        } else if (selectedLocations.length === 0) {
+          displayLocationsBox.className = "text-xs text-slate-400 italic";
+          displayLocationsBox.textContent = `Pilih 1 - ${selectedServiceType.maxLocations} lokasi di sebelah kiri`;
         } else {
           displayLocationsBox.className =
             "text-xs font-semibold text-slate-800 dark:text-slate-200";
-
           displayLocationsBox.innerHTML = selectedLocations
             .map((l) => `• ${l}`)
             .join("<br/>");
         }
       }
 
+      updatePriceEstimate();
       checkFormValidity();
     };
 
+    // Iterate Over Service Cards (Tier 1)
+    serviceCards.forEach((sCard) => {
+      const serviceCardEl = sCard as HTMLElement;
+      const serviceToggle = sCard.querySelector(
+        ".service-toggle",
+      ) as HTMLElement;
+      const serviceBody = sCard.querySelector(".service-body");
+      const serviceChevron = sCard.querySelector(".service-chevron");
+      const sessionCards = sCard.querySelectorAll(".session-card");
+      const locationChips = sCard.querySelectorAll(".location-chip");
+      const locationBadge = sCard.querySelector(".location-counter-badge");
+      const locationWarning = sCard.querySelector(".location-warning");
 
-    cards.forEach((card) => {
-      const cardEl = card as HTMLElement;
+      const maxLocs = Number(serviceCardEl.dataset.maxLocations) || 0;
 
-      const toggleBtn = card.querySelector(".card-toggle") as HTMLElement;
-
-      const details = card.querySelector(".card-details");
-
-      const chevron = card.querySelector(".chevron-icon");
-
-      const locationChips = cardEl.querySelectorAll(".location-chip");
-
-      const counterBadge = cardEl.querySelector(".location-badge");
-
-      const warningText = cardEl.querySelector(".location-warning");
-
-      const updateCardLocationUI = () => {
-        if (counterBadge) {
-          counterBadge.textContent = `${selectedLocations.length}/2 Dipilih`;
+      // Location Chip Handler
+      const updateLocationChipsUI = () => {
+        if (locationBadge) {
+          locationBadge.textContent = `${selectedLocations.length}/${maxLocs} Dipilih`;
         }
 
-        if (selectedLocations.length === 2) {
-          warningText?.classList.remove("hidden");
+        if (selectedLocations.length >= maxLocs && maxLocs > 0) {
+          locationWarning?.classList.remove("hidden");
         } else {
-          warningText?.classList.add("hidden");
+          locationWarning?.classList.add("hidden");
         }
 
         locationChips.forEach((chip) => {
           const chipEl = chip as HTMLElement;
-
           const loc = chipEl.dataset.location || "";
-
           const isSelected = selectedLocations.includes(loc);
-
           const checkBox = chipEl.querySelector(".check-box");
-
           const checkIcon = chipEl.querySelector(".check-icon");
 
           if (isSelected) {
             chipEl.className =
               "location-chip flex items-center justify-between p-3 rounded-xl border-2 border-[#4a88bc] bg-[#4a88bc]/10 transition-all text-left cursor-pointer group";
-
             checkBox?.classList.add("bg-[#4a88bc]", "border-[#4a88bc]");
-
             checkBox?.classList.remove(
               "bg-slate-50",
               "dark:bg-slate-900",
               "border-slate-300",
               "dark:border-slate-700",
             );
-
             checkIcon?.classList.remove("hidden");
           } else {
-            if (selectedLocations.length >= 2) {
+            if (selectedLocations.length >= maxLocs) {
               chipEl.className =
                 "location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/40 dark:bg-slate-900/40 text-left opacity-60 cursor-not-allowed group";
             } else {
               chipEl.className =
                 "location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 hover:border-[#4a88bc] transition-all text-left cursor-pointer group";
             }
-
             checkBox?.classList.remove("bg-[#4a88bc]", "border-[#4a88bc]");
-
             checkBox?.classList.add(
               "bg-slate-50",
               "dark:bg-slate-900",
               "border-slate-300",
               "dark:border-slate-700",
             );
-
             checkIcon?.classList.add("hidden");
           }
         });
 
-        updateLocationsDisplay();
+        updateUIState();
       };
-
 
       locationChips.forEach((chip) => {
         (chip as HTMLElement).onclick = (e) => {
           e.stopPropagation();
-
           const loc = (chip as HTMLElement).dataset.location || "";
+          const idx = selectedLocations.indexOf(loc);
 
-          const index = selectedLocations.indexOf(loc);
-
-          if (index > -1) {
-            selectedLocations.splice(index, 1);
+          if (idx > -1) {
+            selectedLocations.splice(idx, 1);
           } else {
-            if (selectedLocations.length < 2) {
+            if (selectedLocations.length < maxLocs) {
               selectedLocations.push(loc);
             }
           }
-
-          updateCardLocationUI();
+          updateLocationChipsUI();
         };
       });
 
-      const selectThisPackage = () => {
-        cards.forEach((c) => {
-          c.classList.remove("border-[#4a88bc]", "ring-2", "ring-[#4a88bc]/20");
+      // Session Click Handler (Tier 2)
+      sessionCards.forEach((sessCard) => {
+        const sessEl = sessCard as HTMLElement;
+        const sessToggle = sessCard.querySelector(
+          ".session-toggle",
+        ) as HTMLElement;
+        const sessDetails = sessCard.querySelector(".session-details");
 
-          c.querySelector(".radio-indicator")?.classList.remove(
-            "border-[#4a88bc]",
-            "bg-[#4a88bc]/10",
-          );
+        if (sessToggle) {
+          sessToggle.onclick = (e) => {
+            e.stopPropagation();
 
-          c.querySelector(".radio-dot")?.classList.add("opacity-0");
-        });
-        cardEl.classList.add("border-[#4a88bc]", "ring-2", "ring-[#4a88bc]/20");
+            // Deselect other sessions across all service types
+            document.querySelectorAll(".session-card").forEach((sc) => {
+              sc.classList.remove(
+                "border-[#4a88bc]",
+                "ring-2",
+                "ring-[#4a88bc]/20",
+              );
+              sc.querySelector(".session-radio")?.classList.remove(
+                "border-[#4a88bc]",
+                "bg-[#4a88bc]/10",
+              );
+              sc.querySelector(".session-dot")?.classList.add("opacity-0");
+              sc.querySelector(".session-details")?.classList.add("hidden");
+            });
 
-        cardEl
-          .querySelector(".radio-indicator")
-          ?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
+            // Active this session
+            sessEl.classList.add(
+              "border-[#4a88bc]",
+              "ring-2",
+              "ring-[#4a88bc]/20",
+            );
+            sessEl
+              .querySelector(".session-radio")
+              ?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
+            sessEl.querySelector(".session-dot")?.classList.remove("opacity-0");
+            sessDetails?.classList.remove("hidden");
 
-        cardEl.querySelector(".radio-dot")?.classList.remove("opacity-0");
-        selectedPackage = {
-          name: cardEl.dataset.packageName || "",
+            selectedSession = {
+              id: sessEl.dataset.sessionId || "",
+              name: sessEl.dataset.sessionName || "",
+              pax: sessEl.dataset.sessionPax || "",
+              priceSAR: Number(sessEl.dataset.sessionPriceSar) || 0,
+              priceIDRFormatted: sessEl.dataset.sessionPriceIdr || "",
+            };
 
-          price: cardEl.dataset.packagePrice || "",
-
-          subtitle: cardEl.dataset.packageSubtitle || "",
-
-          duration: cardEl.dataset.packageDuration || "",
-        };
-        if (displayBox) {
-          displayBox.className = "font-bold text-[#4a88bc]";
-
-          displayBox.innerHTML = `${selectedPackage.name} - ${selectedPackage.price} SAR`;
+            updateUIState();
+          };
         }
-        updatePriceEstimate();
-        updateCardLocationUI();
-      };
-      if (toggleBtn) {
-        toggleBtn.onclick = (e) => {
+      });
+
+      // Service Type Toggle Click Handler (Tier 1)
+      if (serviceToggle) {
+        serviceToggle.onclick = (e) => {
           e.preventDefault();
 
-          const isHidden = details?.classList.contains("hidden");
+          const isCurrentlyHidden = serviceBody?.classList.contains("hidden");
 
-          cards.forEach((c) => {
-            c.querySelector(".card-details")?.classList.add("hidden");
-
-            c.querySelector(".chevron-icon")?.classList.remove("rotate-180");
+          // Close all other Service Types
+          serviceCards.forEach((sc) => {
+            sc.classList.remove(
+              "border-[#4a88bc]",
+              "ring-2",
+              "ring-[#4a88bc]/20",
+            );
+            sc.querySelector(".service-radio")?.classList.remove(
+              "border-[#4a88bc]",
+              "bg-[#4a88bc]/10",
+            );
+            sc.querySelector(".service-dot")?.classList.add("opacity-0");
+            sc.querySelector(".service-body")?.classList.add("hidden");
+            sc.querySelector(".service-chevron")?.classList.remove(
+              "rotate-180",
+            );
           });
 
-          if (isHidden) {
-            details?.classList.remove("hidden");
+          if (isCurrentlyHidden) {
+            serviceCardEl.classList.add(
+              "border-[#4a88bc]",
+              "ring-2",
+              "ring-[#4a88bc]/20",
+            );
+            serviceCardEl
+              .querySelector(".service-radio")
+              ?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
+            serviceCardEl
+              .querySelector(".service-dot")
+              ?.classList.remove("opacity-0");
+            serviceBody?.classList.remove("hidden");
+            serviceChevron?.classList.add("rotate-180");
 
-            chevron?.classList.add("rotate-180");
+            selectedServiceType = {
+              id: serviceCardEl.dataset.serviceId || "",
+              name: serviceCardEl.dataset.serviceName || "",
+              maxLocations: Number(serviceCardEl.dataset.maxLocations) || 0,
+            };
 
-            selectThisPackage();
+            // Reset selected locations when changing service type
+            selectedLocations = [];
+            selectedSession = null;
+
+            // Automatically open first session if available
+            const firstSessionToggle = serviceCardEl.querySelector(
+              ".session-toggle",
+            ) as HTMLElement;
+            if (firstSessionToggle) {
+              firstSessionToggle.click();
+            } else {
+              updateUIState();
+            }
+
+            updateLocationChipsUI();
+          } else {
+            selectedServiceType = null;
+            selectedSession = null;
+            selectedLocations = [];
+            updateUIState();
           }
         };
       }
     });
 
+    // Automatically Open First Service Type on Load
+    const firstServiceToggle = serviceCards[0]?.querySelector(
+      ".service-toggle",
+    ) as HTMLElement;
+    if (firstServiceToggle) {
+      firstServiceToggle.click();
+    }
+
+    // --- 3. WHATSAPP SUBMIT FORM ---
     if (form) {
       form.onsubmit = (e) => {
         e.preventDefault();
 
-        if (!selectedPackage || selectedLocations.length === 0) {
+        if (!selectedServiceType || !selectedSession) return;
+        if (
+          selectedServiceType.maxLocations > 0 &&
+          selectedLocations.length === 0
+        ) {
+          alert("Harap pilih minimal 1 lokasi foto.");
           return;
         }
 
         const nameInput = document.getElementById(
           "fullName",
         ) as HTMLInputElement;
-
         const dateInput = document.getElementById(
           "sessionDate",
         ) as HTMLInputElement;
 
         const name = nameInput?.value.trim() || "";
-
         const date = dateInput?.value || "";
 
         if (!name || !date) {
-          alert("Harap isi nama dan tanggal sesi Anda.");
-
+          alert("Harap isi nama lengkap dan tanggal sesi Anda.");
           return;
         }
 
         const phoneNumber = "6285163096956";
 
-        const locationsFormatted = selectedLocations
-          .map((l) => `- ${l}`)
-          .join("\n");
+        let locationsText = "Tidak Ada / Sesuai Rencana Paket (All-Inclusive)";
+        if (
+          selectedServiceType.maxLocations > 0 &&
+          selectedLocations.length > 0
+        ) {
+          locationsText = selectedLocations.map((l) => `- ${l}`).join("\n");
+        }
 
-        const message = `Halo Admin Seisipotret, Saya ingin memesan layanan dokumentasi.
+        const message = `Halo Admin Seisipotret, Saya ingin memesan layanan dokumentasi Makkah.
 
-Nama : ${name}
-Package : ${document.title || "Pelataran Mekkah"}
-Tanggal : ${date}
+📌 *DATA PEMESANAN:*
+• Nama Lengkap : ${name}
+• Tanggal Sesi : ${date}
+• Kategori : Pelataran Mekkah
 
-Paket Dipilih:
+✨ *DETAIL LAYANAN DIPILIH:*
+• Tipe Layanan : ${selectedServiceType.name}
+• Sesi / Kapasitas : ${selectedSession.name} (${selectedSession.pax})
+• Estimasi Harga : ${selectedSession.priceSAR} SAR (${selectedSession.priceIDRFormatted})
 
-- ${selectedPackage.name} (${selectedPackage.duration})
+📍 *LOKASI FOTO DIPILIH:*
+${locationsText}
 
-- Harga: ${selectedPackage.price} SAR
-
-Lokasi Foto Dipilih (Maksimal 2):
-
-${locationsFormatted}
-
-Mohon konfirmasi ketersediaan jadwal. Terima kasih.`;
+Mohon informasi ketersediaan jadwal dan konfirmasi pemesanannya. Terima kasih.`;
 
         window.open(
           `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
@@ -1142,13 +1336,12 @@ Mohon konfirmasi ketersediaan jadwal. Terima kasih.`;
         );
       };
     }
-    updatePriceEstimate();
   }
+
   document.addEventListener("astro:page-load", initPageScript);
   document.addEventListener("astro:before-preparation", () => {
     if (slideTimer) {
       clearInterval(slideTimer);
-
       slideTimer = null;
     }
   });
