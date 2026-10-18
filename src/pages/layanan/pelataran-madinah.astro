@@ -31,7 +31,8 @@ const serviceTypes = [
   {
     id: "signature-experience-madinah",
     name: "Signature Experience of Madinah",
-    subtitle: "Pengalaman dokumentasi terlengkap dan paling eksklusif di Madinah.",
+    subtitle:
+      "Pengalaman dokumentasi terlengkap dan paling eksklusif di Madinah.",
     maxLocations: 0, // Tanpa pemilhan lokasi spesifik
     locations: [],
     sessions: [
@@ -106,7 +107,7 @@ const serviceTypes = [
     name: "Rihlah Madinah",
     subtitle: "Sesi dokumentasi esensial di area pintu favorit Masjid Nabawi.",
     maxLocations: 2,
-    locations: ["Pintu 330", "Pintu 327", "Pintu 315"],
+    locations: ["Pintu 330", "Pintu 315"],
     sessions: [
       {
         id: "rihlah-single",
@@ -193,7 +194,9 @@ const serviceTypes = [
           Pelataran Madinah
         </h1>
         <p class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-6 md:mb-8">
-          Abadikan kehangatan dan kedamaian momen Anda di sekitar Masjid Nabawi. Tim fotografer Seisipotret siap mendokumentasikan setiap sudut indah di pelataran Madinah Al-Munawwarah.
+          Abadikan kehangatan dan kedamaian momen Anda di sekitar Masjid Nabawi.
+          Tim fotografer Seisipotret siap mendokumentasikan setiap sudut indah
+          di pelataran Madinah Al-Munawwarah.
         </p>
         <div class="pt-2">
           <a
@@ -201,8 +204,18 @@ const serviceTypes = [
             class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
           >
             <span>Pesan Dokumentasi</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
             </svg>
           </a>
         </div>
@@ -210,8 +223,18 @@ const serviceTypes = [
           <span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">
             Scroll Ke Bawah
           </span>
-          <svg class="w-4 h-4 text-[#4a88bc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          <svg
+            class="w-4 h-4 text-[#4a88bc]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            ></path>
           </svg>
         </div>
       </div>
@@ -228,14 +251,21 @@ const serviceTypes = [
                 PILIH PAKET & LOKASI
               </h2>
               <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mt-3 mb-3">
-                <a href="/#layanan" class="hover:text-[#4a88bc] transition flex items-center gap-1">
+                <a
+                  href="/#layanan"
+                  class="hover:text-[#4a88bc] transition flex items-center gap-1"
+                >
                   <span>← Layanan</span>
                 </a>
                 <span>/</span>
-                <span class="text-slate-900 dark:text-white font-bold">{pageTitle}</span>
+                <span class="text-slate-900 dark:text-white font-bold">
+                  {pageTitle}
+                </span>
               </div>
               <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base font-light leading-relaxed">
-                Pilih tipe layanan di bawah ini, tentukan sesi yang sesuai dengan jumlah peserta Anda, serta pilih lokasi pintu Masjid Nabawi yang diinginkan (bila berlaku).
+                Pilih tipe layanan di bawah ini, tentukan sesi yang sesuai
+                dengan jumlah peserta Anda, serta pilih lokasi pintu Masjid
+                Nabawi yang diinginkan (bila berlaku).
               </p>
             </div>
 
@@ -245,28 +275,46 @@ const serviceTypes = [
                 PREVIEW DESTINASI PELATARAN MADINAH
               </span>
               <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-4/3 sm:aspect-16/10 bg-slate-900 group">
-                <div id="main-slider" class="w-full h-full flex transition-transform duration-500 ease-out">
+                <div
+                  id="main-slider"
+                  class="w-full h-full flex transition-transform duration-500 ease-out"
+                >
                   {galleryImages.map((img) => (
                     <div
                       class="slider-item w-full h-full shrink-0 relative cursor-pointer"
                       data-img-url={img.url}
                       data-img-title={img.title}
                     >
-                      <img src={img.url} alt={img.title} class="w-full h-full object-cover" />
+                      <img
+                        src={img.url}
+                        alt={img.title}
+                        class="w-full h-full object-cover"
+                      />
                       <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
                     </div>
                   ))}
                 </div>
                 <div class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-slate-950/50 backdrop-blur-md text-[11px] font-medium text-white tracking-wider">
-                  <span id="slider-current-index">1</span> / {galleryImages.length}
+                  <span id="slider-current-index">1</span> /{" "}
+                  {galleryImages.length}
                 </div>
                 <button
                   id="prev-btn"
                   aria-label="Previous image"
                   class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/40 hover:bg-slate-950/70 backdrop-blur-md text-white flex items-center justify-center transition cursor-pointer"
                 >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
                   </svg>
                 </button>
                 <button
@@ -274,11 +322,24 @@ const serviceTypes = [
                   aria-label="Next image"
                   class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/40 hover:bg-slate-950/70 backdrop-blur-md text-white flex items-center justify-center transition cursor-pointer"
                 >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M9 5l7 7-7 7"
+                    ></path>
                   </svg>
                 </button>
-                <div id="slider-dots" class="absolute bottom-4 left-0 right-0 z-10 flex justify-center items-center gap-1.5">
+                <div
+                  id="slider-dots"
+                  class="absolute bottom-4 left-0 right-0 z-10 flex justify-center items-center gap-1.5"
+                >
                   {galleryImages.map((_, i) => (
                     <button
                       class={`slider-dot rounded-full transition-all duration-300 ${i === 0 ? "bg-[#4a88bc] w-5 h-1.5" : "bg-white/60 w-1.5 h-1.5"}`}
@@ -318,16 +379,25 @@ const serviceTypes = [
                             <h4 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
                               {st.name}
                             </h4>
-                            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] tracking-wider">
-                            </span>
+                            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#4a88bc]/10 text-[#4a88bc] tracking-wider"></span>
                           </div>
                           <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-1">
                             {st.subtitle}
                           </p>
                         </div>
                       </div>
-                      <svg class="service-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      <svg
+                        class="service-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
                       </svg>
                     </button>
 
@@ -382,8 +452,18 @@ const serviceTypes = [
                                 <ul class="space-y-1.5 pt-1">
                                   {sess.details.map((dt) => (
                                     <li class="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-                                      <svg class="w-3.5 h-3.5 text-[#4a88bc] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                      <svg
+                                        class="w-3.5 h-3.5 text-[#4a88bc] shrink-0 mt-0.5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2.5"
+                                          d="M5 13l4 4L19 7"
+                                        ></path>
                                       </svg>
                                       <span>{dt}</span>
                                     </li>
@@ -418,8 +498,18 @@ const serviceTypes = [
                                   {loc}
                                 </span>
                                 <div class="check-box w-4 h-4 rounded-md border border-slate-300 dark:border-slate-700 flex items-center justify-center shrink-0 bg-slate-50 dark:bg-slate-900 transition-colors">
-                                  <svg class="check-icon w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                  <svg
+                                    class="check-icon w-3 h-3 text-white hidden"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="3"
+                                      d="M5 13l4 4L19 7"
+                                    ></path>
                                   </svg>
                                 </div>
                               </button>
@@ -427,10 +517,23 @@ const serviceTypes = [
                           </div>
 
                           <p class="location-warning text-[10px] text-amber-600 dark:text-amber-400 hidden font-medium flex items-center gap-1 pt-0.5">
-                            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            <svg
+                              class="w-3.5 h-3.5 shrink-0"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                              ></path>
                             </svg>
-                            <span>Batas {st.maxLocations} lokasi tercapai. Unclick lokasi sebelumnya untuk mengganti.</span>
+                            <span>
+                              Batas {st.maxLocations} lokasi tercapai. Unclick
+                              lokasi sebelumnya untuk mengganti.
+                            </span>
                           </p>
                         </div>
                       )}
@@ -445,7 +548,9 @@ const serviceTypes = [
                             <ul class="space-y-1">
                               {st.notIncluded.map((exc) => (
                                 <li class="flex items-start gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                                  <span class="text-[#4a88bc] font-bold">•</span>
+                                  <span class="text-[#4a88bc] font-bold">
+                                    •
+                                  </span>
                                   <span>{exc}</span>
                                 </li>
                               ))}
@@ -461,7 +566,9 @@ const serviceTypes = [
                             <ul class="space-y-1">
                               {st.addOns.map((add) => (
                                 <li class="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300">
-                                  <span class="text-[#4a88bc] font-bold">+</span>
+                                  <span class="text-[#4a88bc] font-bold">
+                                    +
+                                  </span>
                                   <span>{add}</span>
                                 </li>
                               ))}
@@ -484,25 +591,41 @@ const serviceTypes = [
                   Booking Details
                 </h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400 font-light mt-1">
-                  Pilih tipe layanan, sesi, dan lokasi pintu (jika tersedia), lalu lengkapi form pemesanan.
+                  Pilih tipe layanan, sesi, dan lokasi pintu (jika tersedia),
+                  lalu lengkapi form pemesanan.
                 </p>
               </div>
 
               <!-- Status Box -->
               <div class="bg-slate-100/80 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 space-y-3">
                 <div class="flex items-center gap-2 text-xs border-b border-slate-200 dark:border-slate-700/60 pb-2">
-                  <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <svg
+                    class="w-4 h-4 text-slate-500 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
                   </svg>
                   <span class="text-slate-500 font-medium">Kategori:</span>
-                  <span class="font-bold text-slate-900 dark:text-white">{pageTitle}</span>
+                  <span class="font-bold text-slate-900 dark:text-white">
+                    {pageTitle}
+                  </span>
                 </div>
 
                 <div>
                   <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
                     TIPE LAYANAN & SESI:
                   </span>
-                  <div id="selected-service-display" class="text-xs text-slate-400 italic">
+                  <div
+                    id="selected-service-display"
+                    class="text-xs text-slate-400 italic"
+                  >
                     Belum memilih layanan
                   </div>
                 </div>
@@ -511,7 +634,10 @@ const serviceTypes = [
                   <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
                     LOKASI PINTU DIPILIH:
                   </span>
-                  <div id="selected-locations-display" class="text-xs text-slate-400 italic">
+                  <div
+                    id="selected-locations-display"
+                    class="text-xs text-slate-400 italic"
+                  >
                     Tanpa pilihan lokasi
                   </div>
                 </div>
@@ -521,10 +647,16 @@ const serviceTypes = [
                     ESTIMASI TOTAL:
                   </span>
                   <div class="text-right">
-                    <span id="total-price-sar" class="text-xl font-extrabold text-[#4a88bc] block">
+                    <span
+                      id="total-price-sar"
+                      class="text-xl font-extrabold text-[#4a88bc] block"
+                    >
                       0 SAR
                     </span>
-                    <span id="total-price-idr" class="text-[10px] text-slate-400 block font-light">
+                    <span
+                      id="total-price-idr"
+                      class="text-[10px] text-slate-400 block font-light"
+                    >
                       ± Rp 0
                     </span>
                   </div>
@@ -534,13 +666,26 @@ const serviceTypes = [
               <!-- Form Inputs -->
               <form id="booking-form" class="space-y-4">
                 <div>
-                  <label for="fullName" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
+                  <label
+                    for="fullName"
+                    class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5"
+                  >
                     NAMA LENGKAP
                   </label>
                   <div class="relative">
                     <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        ></path>
                       </svg>
                     </span>
                     <input
@@ -554,13 +699,26 @@ const serviceTypes = [
                 </div>
 
                 <div>
-                  <label for="sessionDate" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
+                  <label
+                    for="sessionDate"
+                    class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5"
+                  >
                     TANGGAL SESI
                   </label>
                   <div class="relative">
                     <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
                       </svg>
                     </span>
                     <input
@@ -580,8 +738,18 @@ const serviceTypes = [
                     class="w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm"
                   >
                     <span>KIRIM BOOKING KE WHATSAPP</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
                     </svg>
                   </button>
                 </div>
@@ -603,12 +771,27 @@ const serviceTypes = [
       aria-label="Close modal"
       class="absolute top-6 right-6 text-white/80 hover:text-white p-3 rounded-full bg-white/10 backdrop-blur-md transition cursor-pointer"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
       </svg>
     </button>
     <div class="max-w-4xl w-full flex flex-col items-center text-center space-y-4">
-      <img id="lightbox-img" src="" alt="Full Preview" class="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl" />
+      <img
+        id="lightbox-img"
+        src=""
+        alt="Full Preview"
+        class="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+      />
       <h3 id="lightbox-title" class="text-xl font-bold text-white"></h3>
     </div>
   </div>
@@ -650,9 +833,11 @@ const serviceTypes = [
       }
       dots.forEach((dot, i) => {
         if (i === currentIndex) {
-          dot.className = "slider-dot rounded-full bg-[#4a88bc] w-5 h-1.5 transition-all duration-300";
+          dot.className =
+            "slider-dot rounded-full bg-[#4a88bc] w-5 h-1.5 transition-all duration-300";
         } else {
-          dot.className = "slider-dot rounded-full bg-white/60 w-1.5 h-1.5 transition-all duration-300";
+          dot.className =
+            "slider-dot rounded-full bg-white/60 w-1.5 h-1.5 transition-all duration-300";
         }
       });
     };
@@ -693,7 +878,9 @@ const serviceTypes = [
 
     // Lightbox
     const modal = document.getElementById("lightbox-modal");
-    const modalImg = document.getElementById("lightbox-img") as HTMLImageElement;
+    const modalImg = document.getElementById(
+      "lightbox-img",
+    ) as HTMLImageElement;
     const modalTitle = document.getElementById("lightbox-title");
     const modalClose = document.getElementById("lightbox-close");
 
@@ -731,16 +918,32 @@ const serviceTypes = [
     }
 
     // --- 2. MULTI-TIER SERVICE SELECTION & BOOKING LOGIC ---
-    let selectedServiceType: { id: string; name: string; maxLocations: number } | null = null;
-    let selectedSession: { id: string; name: string; pax: string; priceSAR: number; priceIDRFormatted: string } | null = null;
+    let selectedServiceType: {
+      id: string;
+      name: string;
+      maxLocations: number;
+    } | null = null;
+    let selectedSession: {
+      id: string;
+      name: string;
+      pax: string;
+      priceSAR: number;
+      priceIDRFormatted: string;
+    } | null = null;
     let selectedLocations: string[] = [];
 
     const serviceCards = document.querySelectorAll(".service-type-card");
-    const displayServiceBox = document.getElementById("selected-service-display");
-    const displayLocationsBox = document.getElementById("selected-locations-display");
+    const displayServiceBox = document.getElementById(
+      "selected-service-display",
+    );
+    const displayLocationsBox = document.getElementById(
+      "selected-locations-display",
+    );
     const totalPriceSarEl = document.getElementById("total-price-sar");
     const totalPriceIdrEl = document.getElementById("total-price-idr");
-    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+    const submitBtn = document.getElementById(
+      "submit-btn",
+    ) as HTMLButtonElement;
     const form = document.getElementById("booking-form") as HTMLFormElement;
 
     const kursSAR = 4800;
@@ -767,14 +970,17 @@ const serviceTypes = [
       // Validasi: Harus pilih Tipe Service + Sesi.
       // Jika maxLocations > 0, harus pilih minimal 1 lokasi. Jika maxLocations === 0, lokasi tidak wajib.
       const isServiceValid = !!selectedServiceType && !!selectedSession;
-      const isLocationValid = selectedServiceType?.maxLocations === 0 || selectedLocations.length > 0;
+      const isLocationValid =
+        selectedServiceType?.maxLocations === 0 || selectedLocations.length > 0;
 
       if (isServiceValid && isLocationValid) {
         submitBtn.disabled = false;
-        submitBtn.className = "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md";
+        submitBtn.className =
+          "w-full py-4 rounded-2xl bg-[#4a88bc] hover:bg-[#3b72a0] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md";
       } else {
         submitBtn.disabled = true;
-        submitBtn.className = "w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm";
+        submitBtn.className =
+          "w-full py-4 rounded-2xl bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed transition-all shadow-sm";
       }
     };
 
@@ -794,13 +1000,17 @@ const serviceTypes = [
       if (displayLocationsBox) {
         if (!selectedServiceType || selectedServiceType.maxLocations === 0) {
           displayLocationsBox.className = "text-xs text-slate-400 italic";
-          displayLocationsBox.textContent = "Tanpa pilihan lokasi (All-inclusive)";
+          displayLocationsBox.textContent =
+            "Tanpa pilihan lokasi (All-inclusive)";
         } else if (selectedLocations.length === 0) {
           displayLocationsBox.className = "text-xs text-slate-400 italic";
           displayLocationsBox.textContent = `Pilih 1 - ${selectedServiceType.maxLocations} lokasi pintu di sebelah kiri`;
         } else {
-          displayLocationsBox.className = "text-xs font-semibold text-slate-800 dark:text-slate-200";
-          displayLocationsBox.innerHTML = selectedLocations.map((l) => `• ${l}`).join("<br/>");
+          displayLocationsBox.className =
+            "text-xs font-semibold text-slate-800 dark:text-slate-200";
+          displayLocationsBox.innerHTML = selectedLocations
+            .map((l) => `• ${l}`)
+            .join("<br/>");
         }
       }
 
@@ -811,7 +1021,9 @@ const serviceTypes = [
     // Iterate Over Service Cards (Tier 1)
     serviceCards.forEach((sCard) => {
       const serviceCardEl = sCard as HTMLElement;
-      const serviceToggle = sCard.querySelector(".service-toggle") as HTMLElement;
+      const serviceToggle = sCard.querySelector(
+        ".service-toggle",
+      ) as HTMLElement;
       const serviceBody = sCard.querySelector(".service-body");
       const serviceChevron = sCard.querySelector(".service-chevron");
       const sessionCards = sCard.querySelectorAll(".session-card");
@@ -841,18 +1053,31 @@ const serviceTypes = [
           const checkIcon = chipEl.querySelector(".check-icon");
 
           if (isSelected) {
-            chipEl.className = "location-chip flex items-center justify-between p-3 rounded-xl border-2 border-[#4a88bc] bg-[#4a88bc]/10 transition-all text-left cursor-pointer group";
+            chipEl.className =
+              "location-chip flex items-center justify-between p-3 rounded-xl border-2 border-[#4a88bc] bg-[#4a88bc]/10 transition-all text-left cursor-pointer group";
             checkBox?.classList.add("bg-[#4a88bc]", "border-[#4a88bc]");
-            checkBox?.classList.remove("bg-slate-50", "dark:bg-slate-900", "border-slate-300", "dark:border-slate-700");
+            checkBox?.classList.remove(
+              "bg-slate-50",
+              "dark:bg-slate-900",
+              "border-slate-300",
+              "dark:border-slate-700",
+            );
             checkIcon?.classList.remove("hidden");
           } else {
             if (selectedLocations.length >= maxLocs) {
-              chipEl.className = "location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/40 dark:bg-slate-900/40 text-left opacity-60 cursor-not-allowed group";
+              chipEl.className =
+                "location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/40 dark:bg-slate-900/40 text-left opacity-60 cursor-not-allowed group";
             } else {
-              chipEl.className = "location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 hover:border-[#4a88bc] transition-all text-left cursor-pointer group";
+              chipEl.className =
+                "location-chip flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 hover:border-[#4a88bc] transition-all text-left cursor-pointer group";
             }
             checkBox?.classList.remove("bg-[#4a88bc]", "border-[#4a88bc]");
-            checkBox?.classList.add("bg-slate-50", "dark:bg-slate-900", "border-slate-300", "dark:border-slate-700");
+            checkBox?.classList.add(
+              "bg-slate-50",
+              "dark:bg-slate-900",
+              "border-slate-300",
+              "dark:border-slate-700",
+            );
             checkIcon?.classList.add("hidden");
           }
         });
@@ -880,7 +1105,9 @@ const serviceTypes = [
       // Session Click Handler (Tier 2)
       sessionCards.forEach((sessCard) => {
         const sessEl = sessCard as HTMLElement;
-        const sessToggle = sessCard.querySelector(".session-toggle") as HTMLElement;
+        const sessToggle = sessCard.querySelector(
+          ".session-toggle",
+        ) as HTMLElement;
         const sessDetails = sessCard.querySelector(".session-details");
 
         if (sessToggle) {
@@ -889,15 +1116,28 @@ const serviceTypes = [
 
             // Deselect other sessions across all service types
             document.querySelectorAll(".session-card").forEach((sc) => {
-              sc.classList.remove("border-[#4a88bc]", "ring-2", "ring-[#4a88bc]/20");
-              sc.querySelector(".session-radio")?.classList.remove("border-[#4a88bc]", "bg-[#4a88bc]/10");
+              sc.classList.remove(
+                "border-[#4a88bc]",
+                "ring-2",
+                "ring-[#4a88bc]/20",
+              );
+              sc.querySelector(".session-radio")?.classList.remove(
+                "border-[#4a88bc]",
+                "bg-[#4a88bc]/10",
+              );
               sc.querySelector(".session-dot")?.classList.add("opacity-0");
               sc.querySelector(".session-details")?.classList.add("hidden");
             });
 
             // Active this session
-            sessEl.classList.add("border-[#4a88bc]", "ring-2", "ring-[#4a88bc]/20");
-            sessEl.querySelector(".session-radio")?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
+            sessEl.classList.add(
+              "border-[#4a88bc]",
+              "ring-2",
+              "ring-[#4a88bc]/20",
+            );
+            sessEl
+              .querySelector(".session-radio")
+              ?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
             sessEl.querySelector(".session-dot")?.classList.remove("opacity-0");
             sessDetails?.classList.remove("hidden");
 
@@ -923,17 +1163,34 @@ const serviceTypes = [
 
           // Close all other Service Types
           serviceCards.forEach((sc) => {
-            sc.classList.remove("border-[#4a88bc]", "ring-2", "ring-[#4a88bc]/20");
-            sc.querySelector(".service-radio")?.classList.remove("border-[#4a88bc]", "bg-[#4a88bc]/10");
+            sc.classList.remove(
+              "border-[#4a88bc]",
+              "ring-2",
+              "ring-[#4a88bc]/20",
+            );
+            sc.querySelector(".service-radio")?.classList.remove(
+              "border-[#4a88bc]",
+              "bg-[#4a88bc]/10",
+            );
             sc.querySelector(".service-dot")?.classList.add("opacity-0");
             sc.querySelector(".service-body")?.classList.add("hidden");
-            sc.querySelector(".service-chevron")?.classList.remove("rotate-180");
+            sc.querySelector(".service-chevron")?.classList.remove(
+              "rotate-180",
+            );
           });
 
           if (isCurrentlyHidden) {
-            serviceCardEl.classList.add("border-[#4a88bc]", "ring-2", "ring-[#4a88bc]/20");
-            serviceCardEl.querySelector(".service-radio")?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
-            serviceCardEl.querySelector(".service-dot")?.classList.remove("opacity-0");
+            serviceCardEl.classList.add(
+              "border-[#4a88bc]",
+              "ring-2",
+              "ring-[#4a88bc]/20",
+            );
+            serviceCardEl
+              .querySelector(".service-radio")
+              ?.classList.add("border-[#4a88bc]", "bg-[#4a88bc]/10");
+            serviceCardEl
+              .querySelector(".service-dot")
+              ?.classList.remove("opacity-0");
             serviceBody?.classList.remove("hidden");
             serviceChevron?.classList.add("rotate-180");
 
@@ -948,7 +1205,9 @@ const serviceTypes = [
             selectedSession = null;
 
             // Automatically open first session if available
-            const firstSessionToggle = serviceCardEl.querySelector(".session-toggle") as HTMLElement;
+            const firstSessionToggle = serviceCardEl.querySelector(
+              ".session-toggle",
+            ) as HTMLElement;
             if (firstSessionToggle) {
               firstSessionToggle.click();
             } else {
@@ -967,7 +1226,9 @@ const serviceTypes = [
     });
 
     // Automatically Open First Service Type on Load
-    const firstServiceToggle = serviceCards[0]?.querySelector(".service-toggle") as HTMLElement;
+    const firstServiceToggle = serviceCards[0]?.querySelector(
+      ".service-toggle",
+    ) as HTMLElement;
     if (firstServiceToggle) {
       firstServiceToggle.click();
     }
@@ -978,13 +1239,20 @@ const serviceTypes = [
         e.preventDefault();
 
         if (!selectedServiceType || !selectedSession) return;
-        if (selectedServiceType.maxLocations > 0 && selectedLocations.length === 0) {
+        if (
+          selectedServiceType.maxLocations > 0 &&
+          selectedLocations.length === 0
+        ) {
           alert("Harap pilih minimal 1 lokasi pintu foto.");
           return;
         }
 
-        const nameInput = document.getElementById("fullName") as HTMLInputElement;
-        const dateInput = document.getElementById("sessionDate") as HTMLInputElement;
+        const nameInput = document.getElementById(
+          "fullName",
+        ) as HTMLInputElement;
+        const dateInput = document.getElementById(
+          "sessionDate",
+        ) as HTMLInputElement;
 
         const name = nameInput?.value.trim() || "";
         const date = dateInput?.value || "";
@@ -997,7 +1265,10 @@ const serviceTypes = [
         const phoneNumber = "6285163096956";
 
         let locationsText = "Tidak Ada / Sesuai Rencana Paket (All-Inclusive)";
-        if (selectedServiceType.maxLocations > 0 && selectedLocations.length > 0) {
+        if (
+          selectedServiceType.maxLocations > 0 &&
+          selectedLocations.length > 0
+        ) {
           locationsText = selectedLocations.map((l) => `- ${l}`).join("\n");
         }
 
@@ -1018,7 +1289,10 @@ ${locationsText}
 
 Mohon informasi ketersediaan jadwal dan konfirmasi pemesanannya. Terima kasih.`;
 
-        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+        window.open(
+          `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
       };
     }
   }
