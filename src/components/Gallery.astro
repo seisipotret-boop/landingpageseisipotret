@@ -53,15 +53,6 @@ const photoItems: PortfolioItem[] = [
     image: `${GITHUB_RAW_BASE}/JabalKudaiKhandamah_Single.png`,
   },
   {
-    id: "photo-5",
-    title: "Dokumentasi Area Jabal Uhud",
-    location: "jabal",
-    type: "single",
-    media: "foto",
-    tag: "JABAL UHUD · SINGLE",
-    image: `${GITHUB_RAW_BASE}/JabalUhud_Single.png`,
-  },
-  {
     id: "photo-6",
     title: "Dokumentasi Area Jabal Omar Pelataran Makkah",
     location: "jabal",
@@ -84,7 +75,7 @@ const photoItems: PortfolioItem[] = [
 const videoItems: PortfolioItem[] = [
   {
     id: "video-1",
-    title: "Video Cinematic Umroh VVIP",
+    title: "testimonial",
     location: "makkah",
     type: "testimonial",
     media: "video",
@@ -94,28 +85,28 @@ const videoItems: PortfolioItem[] = [
   },
   {
     id: "video-2",
-    title: "Kesan Jamaah Umrah Family",
-    location: "madinah",
+    title: "testimonial",
+    location: "makkah",
     type: "testimonial",
     media: "video",
     videoProvider: "mp4",
-    tag: "MADINAH · TESTIMONIAL",
+    tag: "MAKKAH · TESTIMONIAL",
     videoUrl: "https://res.cloudinary.com/ayntua2s/video/upload/f_auto,q_auto/v1792309663/TESTIMONI_-_SULIS_-_210926.mp4",
   },
   {
     id: "video-3",
     title: "Video Cinematic Umroh VVIP",
-    location: "makkah",
+    location: "jabal",
     type: "cinematic",
     media: "video",
     videoProvider: "mp4",
-    tag: "MAKKAH · CINEMATIC",
+    tag: "JABAL OMAR · CINEMATIC",
     videoUrl: `https://res.cloudinary.com/ayntua2s/video/upload/f_auto,q_auto/v1792310917/01.CINEMATIC_RAHMANIA.mp4`,
   },
   {
     id: "video-4",
     title: "Kesan Jamaah Umrah Family",
-    location: "madinah",
+    location: "jabal",
     type: "cinematic",
     media: "video",
     videoProvider: "mp4",
@@ -135,7 +126,7 @@ const videoItems: PortfolioItem[] = [
   {
     id: "video-6",
     title: "Kesan Jamaah Umrah Family",
-    location: "madinah",
+    location: "makkah",
     type: "cinematic",
     media: "video",
     videoProvider: "mp4",
@@ -222,8 +213,8 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
         </button>
       </div>
 
-      <!-- Filter Lokasi -->
-      <div class="flex flex-wrap items-center justify-center gap-2 max-w-4xl">
+      <!-- Filter Lokasi (Hanya muncul untuk FOTO) -->
+      <div id="location-filter-container" class="flex flex-wrap items-center justify-center gap-2 max-w-4xl transition-all duration-300">
         <button
           data-filter-loc="all"
           class="filter-loc-btn active-pill px-4 py-1.5 rounded-full text-xs border border-[#4a88bc] bg-[#4a88bc] text-white transition-all shadow-sm cursor-pointer"
@@ -362,11 +353,7 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
               </>
             )}
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 w-max max-w-[90%] text-center pointer-events-none">
-              {/* <span class="inline-block px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 text-[10px] font-semibold uppercase tracking-widest text-white shadow-lg">
-                {item.tag}
-              </span> */}
-            </div>
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 w-max max-w-[90%] text-center pointer-events-none"></div>
           </div>
         ))}
       </div>
@@ -484,6 +471,7 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
     const dotsContainer = document.getElementById("carousel-dots");
+    const locFilterContainer = document.getElementById("location-filter-container");
 
     // Video Modal Elements
     const videoModal = document.getElementById("video-modal");
@@ -494,7 +482,6 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
     const imageModal = document.getElementById("image-modal");
     const modalImageView = document.getElementById("modal-image-view") as HTMLImageElement | null;
     const modalImageTitle = document.getElementById("modal-image-title");
-    const modalImageTag = document.getElementById("modal-image-tag");
     const closeImageModalBtn = document.getElementById("close-image-modal-btn");
     const modalPrevImg = document.getElementById("modal-prev-img");
     const modalNextImg = document.getElementById("modal-next-img");
@@ -517,6 +504,7 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
       const activeLoc = getActiveFilter(".filter-loc-btn", "data-filter-loc", "all");
       const activeType = getActiveFilter(".filter-type-btn", "data-filter-type", "all");
 
+      // Sembunyikan/Tampilkan tombol tipe
       document.querySelectorAll(".type-photo-btn").forEach((btn) => {
         btn.classList.toggle("hidden", activeMedia === "video");
       });
@@ -524,11 +512,21 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
         btn.classList.toggle("hidden", activeMedia !== "video");
       });
 
+      // Sembunyikan Filter Lokasi saat memilih Video
+      if (locFilterContainer) {
+        if (activeMedia === "video") {
+          locFilterContainer.classList.add("hidden");
+        } else {
+          locFilterContainer.classList.remove("hidden");
+        }
+      }
+
       stopCardVideos();
 
       visibleCards = cards.filter((card) => {
         const mediaMatch = card.dataset.media === activeMedia;
-        const locMatch = activeLoc === "all" || card.dataset.loc === activeLoc;
+        // Jika media video, abaikan penyaringan lokasi (anggap selalu match)
+        const locMatch = activeMedia === "video" || activeLoc === "all" || card.dataset.loc === activeLoc;
         const typeMatch = activeType === "all" || card.dataset.type === activeType;
         return mediaMatch && locMatch && typeMatch;
       });
@@ -672,11 +670,9 @@ const portfolioItems: PortfolioItem[] = [...photoItems, ...videoItems];
       const card = visibleCards[index];
       const imgUrl = card.dataset.image || "";
       const title = card.dataset.title || "";
-      // const tag = card.dataset.tag || "";
 
       modalImageView.src = imgUrl;
       if (modalImageTitle) modalImageTitle.textContent = title;
-      // if (modalImageTag) modalImageTag.textContent = tag;
 
       imageModal.classList.remove("hidden");
       requestAnimationFrame(() => {
